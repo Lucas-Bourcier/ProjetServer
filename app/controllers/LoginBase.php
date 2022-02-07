@@ -31,12 +31,22 @@ class LoginBase extends \Ubiquity\controllers\auth\AuthController{
 
 	protected function _connect() {
         if(URequest::isPost()){
-            $email=URequest::post($this->_getLoginInputName());
-            $password=URequest::post($this->_getPasswordInputName());
-            return DAO::uGetOne(User_::class, "email=? and password= ?",false,[$email,$password]);
+            $login=URequest::post($this->_getLoginInputName());
+            // $password=URequest::post($this->_getPasswordInputName());
+            $user=DAO::getOne(User_::class,'login= :login',false,['login'=>$login]); // On récupère l'utilisateur dont le login correspond à celui entré dans le formulaire
+            if(isset($user)) {
+                $id = $user->getId();
+                $name=$user->getLogin();
+                $role=$user->getRole();
+                USession::set('user_id', $id);
+                USession::set('name', $name);
+                USession::set('role', $role); // On met en session le role de l'utilisateur que l'on a récupéré en BDD
+                USession::set('user', $user);
+            }
+            return $user;
         }
         return;
-	}
+    }
 	
 	/**
 	 * {@inheritDoc}
