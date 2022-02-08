@@ -1,10 +1,12 @@
+
 <div class="ui grid form-grid">
     <div class="six wide column">
         <div class="ui segment height-85">
             <select class="ui dropdown">
                 <option value="">Sélectionner un serveur</option>
-                <option value="1">Test</option>
-                <option value="0">Test 1</option>
+                {% for server in servers %}
+                <option value="1">{{ server }}</option>
+                {% endfor %}
             </select>
             <div class="ui list">
                 <div class="item">
@@ -85,6 +87,9 @@
                 </div>
                 <div class="thirteen wide column">
                     test
+                    {% for user in users %}
+                    <p><b>Users :</b> {{ user.login }}</p>
+                    {% endfor %}
                 </div>
             </div>
         </div>
