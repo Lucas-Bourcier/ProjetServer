@@ -1,15 +1,12 @@
 <?php
 namespace controllers;
-
-use Ajax\JsUtils;
+use Ajax\php\ubiquity\JsUtils;
 use models\Groupe;
 use models\Route;
 use models\Serveur;
 use models\User_;
-use Ubiquity\core\postinstall\Display;
-use Ubiquity\log\Logger;
 use Ubiquity\orm\DAO;
-use Ubiquity\themes\ThemesManager;
+
 
 /**
  * Controller IndexController
@@ -27,23 +24,21 @@ class IndexController extends ControllerBase {
         $this->jquery->renderView('Index/index.html', ['vms' => $vm]);
     }
 
+    #[Route("/", name: "vm.home")]
+    public function listVM() {
+        $vm = DAO::getAll(Vm::class);
+        $this->jquery->renderView('Index/index.html', ['test' => $vm]);
+    }
+
+    #[Route("/", name: "server.home")]
     public function listServeurAll() {
         $server = DAO::getAll(Serveur::class);
         $this->jquery->renderView('Index/index.html', ['servers' => $server]);
     }
 
+    #[Route("/", name: "user.home")]
     public function listUser(){
         $user = DAO::getAll(User_::class);
         $this->jquery->renderView('Index/index.html', ['users' => $user]);
-    }
-
-    public function listGroup(){
-        $groupAll = DAO::getAll(Groupe::class);
-        $this->jquery->renderView('Index/index.html', ['groups' => $groupAll]);
-    }
-
-    public function listRoute(){
-        $route = DAO::getAll(Route::class);
-        $this->jquery->renderView('Index/index.html', ['routes' => $route]);
     }
 }

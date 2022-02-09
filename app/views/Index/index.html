@@ -5,7 +5,7 @@
             <select class="ui dropdown">
                 <option value="">Sélectionner un serveur</option>
                 {% for server in servers %}
-                <option value="1">{{ server }}</option>
+                <option value="1">{{ server.dnsName }}</option>
                 {% endfor %}
             </select>
             <div class="ui list">
@@ -90,9 +90,14 @@
                     {% for user in users %}
                     <p><b>Users :</b> {{ user.login }}</p>
                     {% endfor %}
+
+                    {% for vm in test %}
+                    <p><b>Users :</b> {{ vm.number }}</p>
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
 </div>
+{{ script_foot|raw }}
 
