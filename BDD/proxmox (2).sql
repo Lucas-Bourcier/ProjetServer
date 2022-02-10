@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 10 fév. 2022 à 12:10
+-- Généré le : jeu. 10 fév. 2022 à 13:48
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 8.0.15
 
@@ -117,7 +117,8 @@ CREATE TABLE `usergroups` (
 --
 
 INSERT INTO `usergroups` (`idUser`, `idGroupe`) VALUES
-(1, 1);
+(1, 1),
+(2, 1);
 
 -- --------------------------------------------------------
 
@@ -136,7 +137,8 @@ CREATE TABLE `userservers` (
 
 INSERT INTO `userservers` (`id`, `id_1`) VALUES
 (0, 0),
-(1, 1);
+(1, 1),
+(2, 1);
 
 -- --------------------------------------------------------
 
@@ -157,7 +159,8 @@ CREATE TABLE `user_` (
 
 INSERT INTO `user_` (`id`, `login`, `password`, `role`) VALUES
 (0, 'admin', 'admin', '@ADMIN'),
-(1, 'toto@gmail.com', 'toto', '@ETUDIANT');
+(1, 'toto@gmail.com', 'toto', '@ETUDIANT'),
+(2, 'mathieu', 'mathieu', '@ETUDIANT');
 
 -- --------------------------------------------------------
 
@@ -182,8 +185,9 @@ CREATE TABLE `vm` (
 --
 
 INSERT INTO `vm` (`id`, `number`, `name`, `ip`, `sshPort`, `os`, `idUser`, `idServeur`, `idGroupe`) VALUES
-(0, 1, 'toto\'Machine', '172.14.15.16', 220, 'Linux', 1, 1, NULL),
-(1, 2, 'Test\'Machine', '172.14.15.17', 220, 'Linux', 0, 1, NULL);
+(1, 1, 'toto\'Machine', '172.14.15.16', 220, 'Linux', 1, 1, 1),
+(2, 2, 'Test\'Machine', '172.14.15.17', 220, 'Linux', NULL, 1, NULL),
+(3, 3, 'Mathieu', '172.17.15.33', 220, 'Windows', 2, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -270,6 +274,16 @@ ALTER TABLE `vmservices`
   ADD KEY `idService` (`idService`);
 
 --
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `vm`
+--
+ALTER TABLE `vm`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- Contraintes pour les tables déchargées
 --
 
@@ -311,8 +325,8 @@ ALTER TABLE `vm`
 -- Contraintes pour la table `vmservices`
 --
 ALTER TABLE `vmservices`
-  ADD CONSTRAINT `vmservices_ibfk_1` FOREIGN KEY (`idVm`) REFERENCES `vm` (`id`),
-  ADD CONSTRAINT `vmservices_ibfk_2` FOREIGN KEY (`idService`) REFERENCES `service` (`id`);
+  ADD CONSTRAINT `vmservices_ibfk_2` FOREIGN KEY (`idService`) REFERENCES `service` (`id`),
+  ADD CONSTRAINT `vmservices_ibfk_3` FOREIGN KEY (`idVm`) REFERENCES `vm` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

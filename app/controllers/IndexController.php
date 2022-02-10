@@ -6,8 +6,13 @@ use models\Route;
 use models\Serveur;
 use models\User_;
 use models\Vm;
+use Ubiquity\attributes\items\router\Get;
+use Ubiquity\attributes\items\router\Post;
+use Ubiquity\controllers\Router;
 use Ubiquity\orm\DAO;
+use Ubiquity\utils\http\URequest;
 use Ubiquity\utils\http\USession;
+use Ubiquity\utils\models\UArrayModels;
 
 
 /**
@@ -16,9 +21,12 @@ use Ubiquity\utils\http\USession;
  */
 class IndexController extends ControllerBase {
 
+
 	public function index() {
         $this->jquery->renderView('IndexController/index.html');
 	}
+
+    //Fonction qui permettent de récupérer les données de la BDD
 
     #[Route("/vmUser", name: "vmUser.home")]
     public function vmUser() {
