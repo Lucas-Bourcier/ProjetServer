@@ -1,2 +1,6 @@
 <!--View associated to index action of VmController controller -->
-<h1>Test</h1>
+<h1>Liste des VM : </h1>
+{% for vm in listVMS %}
+<p><b>Numéro de VM :</b> {{ vm.number }}</p>
+<p><b>Nom de VM :</b> {{ vm.name }}</p>
+{% endfor %}

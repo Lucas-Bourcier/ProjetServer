@@ -2,6 +2,7 @@
 namespace controllers;
  use Ajax\php\ubiquity\JsUtils;
  use models\Groupe;
+ use models\Route;
  use models\Serveur;
  use models\User_;
  use models\Vm;
@@ -11,12 +12,15 @@ namespace controllers;
  use Ubiquity\orm\DAO;
  use Ubiquity\orm\repositories\ViewRepository;
  use Ubiquity\utils\http\URequest;
+ use Ubiquity\utils\http\USession;
  use Ubiquity\utils\models\UArrayModels;
 
  /**
   * Controller VmController
   * @property JsUtils $jquery
   */
+
+ #[\Ubiquity\attributes\items\router\Route("VM")]
 class VmController extends \controllers\ControllerBase{
 
     private ViewRepository $repo;
@@ -25,9 +29,27 @@ class VmController extends \controllers\ControllerBase{
         parent::initialize();
         $this->repo??=new ViewRepository($this,Vm::class);
     }
+
+     #[\Ubiquity\attributes\items\router\Route("/")]
 	public function index(){
-		$this->loadView("VmController/index.html");
+        $listVM = DAO::getAll(Vm::class);
+		$this->loadView("VmController/index.html", ['listVMS' => $listVM]);
 	}
+
+     //Fonction qui permettent de récupérer les données de la BDD
+
+     #[\Ubiquity\attributes\items\router\Route("/vmUser", name: "vmUser.home")]
+     public function vmUser() {
+         $user_id = USession::get('user_id');
+         $vm = DAO::getAll(Vm::class, 'idUser = :idUser', false, ['idUser' => $user_id]);
+         $this->jquery->renderView('VmController/listVMUser.html', ['vms' => $vm]);
+     }
+
+     #[\Ubiquity\attributes\items\router\Route("/listVM", name: "listVM.home")]
+     public function listVM() {
+         $listVM = DAO::getAll(Vm::class);
+         $this->jquery->renderView('VmController/listVM.html', ['listVMS' => $listVM]);
+     }
 
     //Fonction formulaire et ajout d'une VM
 

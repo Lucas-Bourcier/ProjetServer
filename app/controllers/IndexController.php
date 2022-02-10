@@ -28,19 +28,6 @@ class IndexController extends ControllerBase {
 
     //Fonction qui permettent de récupérer les données de la BDD
 
-    #[Route("/vmUser", name: "vmUser.home")]
-    public function vmUser() {
-        $user_id = USession::get('user_id');
-        $vm = DAO::getAll(Vm::class, 'idUser = :idUser', false, ['idUser' => $user_id]);
-        $this->jquery->renderView('IndexController/listVMUser.html', ['vms' => $vm]);
-    }
-
-    #[Route("/listVM", name: "listVM.home")]
-    public function listVM() {
-        $listVM = DAO::getAll(Vm::class);
-        $this->jquery->renderView('IndexController/listVM.html', ['listVMS' => $listVM]);
-    }
-
     #[Route("/listServer", name: "server.home")]
     public function listServer() {
         $server = DAO::getAll(Serveur::class);
