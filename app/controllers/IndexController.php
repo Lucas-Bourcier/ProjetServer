@@ -5,7 +5,9 @@ use models\Groupe;
 use models\Route;
 use models\Serveur;
 use models\User_;
+use models\Vm;
 use Ubiquity\orm\DAO;
+use Ubiquity\utils\http\USession;
 
 
 /**
@@ -15,30 +17,37 @@ use Ubiquity\orm\DAO;
 class IndexController extends ControllerBase {
 
 	public function index() {
-        $this->jquery->renderView('Index/index.html');
+        $this->jquery->renderView('IndexController/index.html');
 	}
 
-    public function listVMUser() {
+    #[Route("/vmUser", name: "vmUser.home")]
+    public function vmUser() {
         $user_id = USession::get('user_id');
         $vm = DAO::getAll(Vm::class, 'idUser = :idUser', false, ['idUser' => $user_id]);
-        $this->jquery->renderView('Index/index.html', ['vms' => $vm]);
+        $this->jquery->renderView('IndexController/listVMUser.html', ['vms' => $vm]);
     }
 
-    #[Route("/", name: "vm.home")]
+    #[Route("/listVM", name: "listVM.home")]
     public function listVM() {
-        $vm = DAO::getAll(Vm::class);
-        $this->jquery->renderView('Index/index.html', ['test' => $vm]);
+        $listVM = DAO::getAll(Vm::class);
+        $this->jquery->renderView('IndexController/listVM.html', ['listVMS' => $listVM]);
     }
 
-    #[Route("/", name: "server.home")]
-    public function listServeurAll() {
+    #[Route("/listServer", name: "server.home")]
+    public function listServer() {
         $server = DAO::getAll(Serveur::class);
-        $this->jquery->renderView('Index/index.html', ['servers' => $server]);
+        $this->jquery->renderView('IndexController/listServeurAll.html', ['servers' => $server]);
     }
 
-    #[Route("/", name: "user.home")]
-    public function listUser(){
+    #[Route("/users", name: "user.home")]
+    public function users(){
         $user = DAO::getAll(User_::class);
-        $this->jquery->renderView('Index/index.html', ['users' => $user]);
+        $this->jquery->renderView('IndexController/listUser.html', ['users' => $user]);
+    }
+
+    #[Route("/listGroups", name: "user.home")]
+    public function listGroups(){
+        $group = DAO::getAll(Groupe::class);
+        $this->jquery->renderView('IndexController/groups.html', ['groups' => $group]);
     }
 }

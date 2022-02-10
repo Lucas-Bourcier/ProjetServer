@@ -1,0 +1,5 @@
+<!--View associated to listServeurAll action of IndexController controller -->
+{% for server in servers %}
+<p><b>Nom de DNS du serveur :</b> {{ server.dnsname }}</p>
+<p><b>Adresse IP du serveur :</b> {{ server.ipaddress }}</p>
+{% endfor %}
