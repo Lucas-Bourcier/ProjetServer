@@ -1,7 +1,8 @@
-body{
-
-	background-color: #5a6268;
+#bodyDashBoard{
+	background-color: #b0b6ba;
+	height: 100vh;
 }
+
 .head{
 	background-color: #1f1f1f;
 }
@@ -39,7 +40,7 @@ nav > .inline > .title {
 	align-items: center;
 }
 
-.orange {
+nav > .inline > .title >.orange {
 	font-weight: bold;
 	font-size: xxx-large;
 	display: flex;
@@ -83,7 +84,6 @@ nav > .inline > .liste > ul > li {
 
 .three.wide.column {
 	border-top: solid 1px black;
-
 	height: 83vh;
 }
 
@@ -106,3 +106,85 @@ nav > .inline > .liste > ul > li {
 .ui.list > .item{
 	margin-bottom: 10px;
 }
+
+.ui.inverted.vertical.menu{
+	position: fixed;
+	top: 0;
+	height: 100vh;
+	border-radius: inherit;
+	width: 35vh;
+	z-index: 1;
+}
+
+.ui.inverted.vertical.menu > .ui.segment{
+	padding: 35px;
+	border-radius: inherit;
+}
+
+.ui.inverted.menu .active.item{
+	background: none;
+	color: #ff8103 !important;
+}
+
+.ui.inverted.menu a{
+	font-size: large;
+}
+
+.ui.horizontal.inverted.divider{
+	font-size: large;
+}
+
+.ui.inverted.menu a:hover {
+	background: rgba(255, 129, 3, 0.3) !important;
+}
+
+.dash-btn{
+	cursor: pointer;
+	background-color: #313233;
+	width: 100%;
+	color: white;
+	font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+	margin: 0 0.25em 0 0;
+	padding: 0.78571429em 1.5em 0.78571429em;
+	border: none;
+	font-size: large;
+}
+
+.dash-btn:hover{
+	background-color: #48494a;
+	font-weight: bold;
+}
+
+.content-dash {
+	margin-left: 17%;
+	padding: 35px;
+}
+
+.ui.grid {
+	padding: 0;
+}
+
+#bodyDashBoard > .content-dash > h1{
+	text-align: center;
+	margin-bottom: 25px;
+}
+
+.color-dash {
+	color: #ff8103 !important;
+}
+
+.bg-dash {
+	background: #ff8103 !important;
+	color: white !important;
+}
+
+.ui.top.attached.header{
+
+	margin-top: 25px;
+}
+
+
+
+
+
+

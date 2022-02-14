@@ -1,6 +1,7 @@
 <?php
 namespace controllers;
  use Ubiquity\utils\http\URequest;
+ use Ubiquity\utils\http\USession;
 
  /**
   * Controller DashBoard
@@ -24,6 +25,8 @@ class DashBoard extends \controllers\ControllerBase{
     }
 
 	public function index(){
-		$this->loadView("DashBoard/index.html");
+		$this->loadView("DashBoard/index.html", ['name' =>USession::get('name')]);
 	}
+
+
 }
