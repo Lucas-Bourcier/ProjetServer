@@ -179,10 +179,21 @@ nav > .inline > .liste > ul > li {
 }
 
 .ui.top.attached.header{
-
 	margin-top: 25px;
 }
 
+.dash-inline{
+	display: inline-flex;
+	gap: 35px;
+}
+
+.content-crud {
+	width: 35%;
+}
+
+.divider {
+	border-left: solid 1px #d4d4d5;
+}
 
 
 
