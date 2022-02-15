@@ -157,7 +157,7 @@ nav > .inline > .liste > ul > li {
 
 .content-dash {
 	margin-left: 17%;
-	padding: 35px;
+	padding: 30px;
 }
 
 .ui.grid {
@@ -191,10 +191,17 @@ nav > .inline > .liste > ul > li {
 	width: 35%;
 }
 
-.divider {
+.divider-dash {
 	border-left: solid 1px #d4d4d5;
 }
 
+.margin-dash{
+	margin-top: 10px !important;
+}
+
+.dash-profil {
+	margin-top: 15%;
+}
 
 
 

@@ -1,0 +1,33 @@
+<div id="bodyDashBoard">
+    <div class="content-dash">
+        <h1>Mes VM'S</h1>
+        {% for vm in vms %}
+        <div class="ui centered grid">
+            <div class="height wide computer eight wide tablet sixteen wide mobile column">
+                <div class="ui fluid card">
+                    <div class="content">
+                        <div class="ui right floated header">
+                            {{ vm.number }}
+                        </div>
+                        <div class="header">
+                            <div class="ui header ">
+                                {{ vm.name }}
+                            </div>
+                        </div>
+                        <div class="meta">
+                            Adresse Ip : {{ vm.ip }}
+                        </div>
+                        <div class="description">
+                            <div>OS : {{ vm.os }}</div>
+                            <div>Port SSh : {{ vm.sshport }}</div>
+                        </div>
+                    </div>
+
+                            <div class="ui bottom attached button bg-dash">Modifier la VM</div>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
