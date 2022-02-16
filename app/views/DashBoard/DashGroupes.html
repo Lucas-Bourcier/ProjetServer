@@ -1,0 +1,31 @@
+<div id="bodyDashBoard">
+    <div class="content-dash">
+        <h1>Mes Groupes</h1>
+        {% for groupe in groupes %}
+        <div class="ui centered grid">
+            <div class="height wide computer eight wide tablet sixteen wide mobile column">
+                <div class="ui fluid card">
+                    <div class="content">
+                        <div class="ui right floated header">
+                            {{groupe.id}}
+                        </div>
+                        <div class="header">
+                            <div class="ui header ">
+                                {{groupes.name}}
+                            </div>
+                        </div>
+                        <div class="meta">
+                            Description groupe
+                        </div>
+                        <div class="description">
+                            <div>Nombre de personnes dans le groupe : </div>
+                        </div>
+                    </div>
+                    <div class="ui bottom attached button bg-dash">Voir le groupe</div>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

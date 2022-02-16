@@ -157,7 +157,7 @@ nav > .inline > .liste > ul > li {
 
 .content-dash {
 	margin-left: 17%;
-	padding: 35px;
+	padding: 30px;
 }
 
 .ui.grid {
@@ -191,10 +191,11 @@ nav > .inline > .liste > ul > li {
 	width: 35%;
 }
 
-.divider {
+.divider-dash {
 	border-left: solid 1px #d4d4d5;
 }
 
+<<<<<<< HEAD
 .indeximage {
     background-image: url("https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-blue-minimalist-technology-computer-banner-image_188887.jpg");
 	background-size: cover;
@@ -207,6 +208,27 @@ nav > .inline > .liste > ul > li {
 	font-size: 500%;
 	margin: 60px;
 	color: white;
+=======
+.margin-dash{
+	margin-top: 10px !important;
+}
+
+.dash-profil {
+	margin-top: 13%;
+}
+
+.dash-transform{
+	text-transform: uppercase;
+}
+
+.dash-middle {
+	display: flex;
+	justify-content: center;
+}
+
+.dash-padding {
+	padding: 5% !important;
+>>>>>>> fa6861ffcc8a567c204f3f00737036db35d70a48
 }
 
 
