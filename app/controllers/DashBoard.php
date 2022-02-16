@@ -1,5 +1,6 @@
 <?php
 namespace controllers;
+ use models\Groupe;
  use models\User_;
  use models\Vm;
  use Ubiquity\attributes\items\router\Route;
@@ -29,7 +30,9 @@ class DashBoard extends \controllers\ControllerBase{
     }
 
 	public function index(){
-		$this->loadView("DashBoard/index.html", ['name' =>USession::get('name')]);
+        $user_id = USession::get('user_id');
+        $nbVm=DAO::count(Vm::class, 'idUser = :idUser', ['idUser' => $user_id]);
+		$this->loadView("DashBoard/index.html", ['name' =>USession::get('name'), 'nbVm' => $nbVm]);
 	}
 
     #[Route('/DashBoard/VM', name: 'dash.vm')]
@@ -37,6 +40,13 @@ class DashBoard extends \controllers\ControllerBase{
         $user_id = USession::get('user_id');
         $vm = DAO::getAll(Vm::class, 'idUser = :idUser', false, ['idUser' => $user_id]);
         $this->loadView("DashBoard/DashVm.html", ['vms' => $vm]);
+    }
+
+    #[Route('/DashBoard/Groupes', name: 'dash.groupes')]
+    public function DashGroupes(){
+        $user_id = USession::get('user_id');
+        $groupe = DAO::getAll(Groupe::class, 'idUser = :idUser', false, ['idUser' => $user_id]);
+        $this->loadView("DashBoard/DashGroupes.html", ['groupes' => $groupe]);
     }
 
     #[Route('/DashBoard/Profil', name: 'dash.profil')]

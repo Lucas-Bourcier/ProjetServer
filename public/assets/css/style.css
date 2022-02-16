@@ -200,9 +200,21 @@ nav > .inline > .liste > ul > li {
 }
 
 .dash-profil {
-	margin-top: 15%;
+	margin-top: 13%;
 }
 
+.dash-transform{
+	text-transform: uppercase;
+}
+
+.dash-middle {
+	display: flex;
+	justify-content: center;
+}
+
+.dash-padding {
+	padding: 5% !important;
+}
 
 
 

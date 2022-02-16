@@ -1,28 +1,32 @@
 <div id="bodyDashBoard">
     <div class="content-dash">
         <div class="dash-profil">
-            <div class="ui centered card ">
-                <div class="image ">
-                    <img src="assets/img/kristy.png">
-                </div>
+            <div class="ui card centered">
+                <img class="ui centered image" src="assets/img/admin.png">
+                <h2 class="ui centered header">
+                    <div class="content dash-transform">
+                        {{users.login}}
+                        <div class="sub header dash-margin">{{users.role}}</div>
+                    </div>
+                </h2>
                 <div class="content">
-                    <a class="header">{{users.login}}</a>
-                    <div class="meta">
-                        <span class="date">Joined in 2022</span>
-                    </div>
-                    <div class="description">
-                        Vos rôles : {{users.role}}
+                    <div class="description dash-padding">
+                        Description ou ajout de champs sur le User
                     </div>
                 </div>
-                <div class="extra content">
-                    <a>
-                        <i class="user icon"></i>
-                        22 VM
-                    </a>
-                    <a class="right floated">
-                        <i class="user icon "></i>
-                        3 Groupes
-                    </a>
+                <div class="extra content dash-middle dash-padding ">
+                    <button class="ui linkedin button">
+                        <i class="linkedin icon"></i>
+                        LinkedIn
+                    </button>
+                    <button class="ui black button">
+                        <i class="github icon"></i>
+                        Github
+                    </button>
+                </div>
+                <div class="ui bottom bg-dash attached button">
+                    <i class="edit icon"></i>
+                    Modifier le profil
                 </div>
             </div>
         </div>
