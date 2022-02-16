@@ -32,7 +32,9 @@ class DashBoard extends \controllers\ControllerBase{
 	public function index(){
         $user_id = USession::get('user_id');
         $nbVm=DAO::count(Vm::class, 'idUser = :idUser', ['idUser' => $user_id]);
-		$this->loadView("DashBoard/index.html", ['name' =>USession::get('name'), 'nbVm' => $nbVm]);
+        $user=DAO::getById(User_::class,1,['groupes']);
+        $countGroupes=count($user->getGroupes());
+		$this->loadView("DashBoard/index.html", ['name' =>USession::get('name'), 'nbVm' => $nbVm, 'nbGroupes' =>$countGroupes]);
 	}
 
     #[Route('/DashBoard/VM', name: 'dash.vm')]
