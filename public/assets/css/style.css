@@ -195,7 +195,48 @@ nav > .inline > .liste > ul > li {
 	border-left: solid 1px #d4d4d5;
 }
 
+.indeximage {
+    background-image: url("https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-blue-minimalist-technology-computer-banner-image_188887.jpg");
+	background-size: cover;
+
+}
+
+.imgtxt{
+
+	text-align: right;
+	font-size: 500%;
+	margin: 60px;
+	color: white;
+}
 
 
+.imgsoustxt{
 
+	text-align: right;
+	font-size: 300%;
+	margin: 60px;
+	color: White;
+}
+
+.titreindex{
+	text-align: center;
+}
+
+.texteindex{
+	text-align: center;
+	font-size: 125%;
+}
+
+.indeximage2{
+		background-image: url("https://media.istockphoto.com/vectors/abstract-black-stripes-diagonal-background-vector-id1294603953?k=20&m=1294603953&s=612x612&w=0&h=KLAV73oMUFA2ucWMMTOdXT8Vn4LVUsh6NTiXRmlX5ZA=");
+		background-repeat: no-repeat;
+		background-size: cover;
+	background-clip: border-box;
+}
+
+.whitetexte{
+	text-align: center;
+	font-size: 500%;
+	color: white;
+}
 
