@@ -203,7 +203,6 @@ nav > .inline > .liste > ul > li {
 .indeximage {
     background-image: url("../img/banniere.jpg");
 	background-size: cover;
-
 }
 
 .imgtxt {
@@ -211,12 +210,10 @@ nav > .inline > .liste > ul > li {
 	text-align: right;
 	font-size: 500%;
 	margin: 60px;
-<<<<<<< HEAD
 	color: white;
-=======
 	color: #1f1f1f;
->>>>>>> 082fb290dff0be34967f978ec1622e91e5b2edfe
 }
+
 .margin-dash{
 	margin-top: 10px !important;
 }
