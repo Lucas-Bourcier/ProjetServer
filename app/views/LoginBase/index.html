@@ -1,6 +1,9 @@
 {% block _before %}
 <p></p>
 {% endblock %}
+
+<div class="pageConnection">
+
 {% block _form %}
 <form id="frm-login" class="ui form" name="frm-login" method="post" action="{{action}}">
 {% block _header %}
@@ -47,5 +50,6 @@
 {% endblock %}
 </form>
 {% endblock %}
+</div>
 {% block _after %}
 {% endblock %}
