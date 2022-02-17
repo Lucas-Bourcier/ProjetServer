@@ -3,6 +3,9 @@
 	height: 100vh;
 }
 
+#bodyIndex{
+	background-color: rgb(173, 169, 169);
+}
 .head{
 	background-color: #1f1f1f;
 }
@@ -23,7 +26,7 @@
 
 nav {
 	width: 100%;
-	background-color: #b0b6ba;
+	background-color: #1f1f1f;
 	padding: 15px;
 }
 
@@ -63,7 +66,9 @@ nav > .inline > .liste > ul > li {
 	margin-left: 3% ;
 }
 
-
+.orange{
+	color: #ff8103;
+}
 .ui.grid {
 	padding: 1% 1% 0 1%;
 }
@@ -196,7 +201,7 @@ nav > .inline > .liste > ul > li {
 }
 
 .indeximage {
-    background-image: url("https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-blue-minimalist-technology-computer-banner-image_188887.jpg");
+    background-image: url("../img/banniere.jpg");
 	background-size: cover;
 
 }
@@ -206,7 +211,11 @@ nav > .inline > .liste > ul > li {
 	text-align: right;
 	font-size: 500%;
 	margin: 60px;
+<<<<<<< HEAD
 	color: white;
+=======
+	color: #1f1f1f;
+>>>>>>> 082fb290dff0be34967f978ec1622e91e5b2edfe
 }
 .margin-dash{
 	margin-top: 10px !important;
@@ -229,13 +238,12 @@ nav > .inline > .liste > ul > li {
 	padding: 5% !important;
 }
 
-
 .imgsoustxt{
 
 	text-align: right;
 	font-size: 300%;
 	margin: 60px;
-	color: White;
+	color: #1f1f1f
 }
 
 .titreindex{
@@ -248,7 +256,13 @@ nav > .inline > .liste > ul > li {
 }
 
 .indeximage2{
-		background-image: url("https://media.istockphoto.com/vectors/abstract-black-stripes-diagonal-background-vector-id1294603953?k=20&m=1294603953&s=612x612&w=0&h=KLAV73oMUFA2ucWMMTOdXT8Vn4LVUsh6NTiXRmlX5ZA=");
+	position: relative;
+	box-shadow: 0 1px 2px 0 rgb(34 36 38 / 15%);
+	padding: 1em 1em;
+	border-radius: 0.5rem;
+	border: 1px solid rgba(34,36,38,.15);
+	margin: 2rem;
+		background-image: url("https://www.cforpro.com/images/formation-reseaux-informatique.jpg");
 		background-repeat: no-repeat;
 		background-size: cover;
 	background-clip: border-box;
@@ -257,6 +271,67 @@ nav > .inline > .liste > ul > li {
 .whitetexte{
 	text-align: center;
 	font-size: 500%;
-	color: white;
+	color: #1f1f1f;
+}
+.mb-3{
+margin-top: 2rem !important;
+margin-bottom: 2rem !important;
+margin-left: 2rem !important;
+margin-right: 2rem !important;
 }
 
+.mb-4{
+	margin-bottom: 1rem !important;
+	margin-left: 1rem !important;
+	margin-right: 1rem !important;
+	margin-top: 0 !important;
+}
+.footer{
+	width: auto;
+	height: 15%;
+	background-color: #1f1f1f;
+	display: flex;
+	margin-top: 2rem;
+	padding-top: 1.5rem;
+}
+.center{
+	width: 25%;
+    display: flex;
+    height: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 8%;
+    flex-direction: column;
+    justify-content: center;
+}
+.logoFooter{
+	width: auto;
+	height: 100%;
+}
+
+.pageCentrale{
+	position: relative;
+	background: #fff;
+	box-shadow: 0 1px 2px 0 rgb(34 36 38 / 15%);
+	padding: 1em 1em;
+	border-radius: 0.5rem;
+	border: 1px solid rgba(34,36,38,.15);
+	margin-top: -3.5rem;
+	margin-left: 5rem;
+	margin-right: 5rem;
+	margin-bottom: -3.5rem;
+}
+
+.pageConnection{
+	position: relative;
+	background: #fff;
+	box-shadow: 0 1px 2px 0 rgb(34 36 38 / 15%);
+	padding: 1em 1em;
+	border-radius: 0.5rem;
+	border: 1px solid rgba(34,36,38,.15);
+	margin-top: 5rem;
+	margin-left: 5rem;
+	margin-right: 5rem;
+	margin-bottom: 5rem;
+}

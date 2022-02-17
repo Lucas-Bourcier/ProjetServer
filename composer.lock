@@ -38,16 +38,16 @@
         },
         {
             "name": "phpmv/php-mv-ui",
-            "version": "2.4.4",
+            "version": "2.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpMv/phpMv-UI.git",
-                "reference": "514b5fc9e2cd76c4faf7873b99c9e9f11ca0b4e6"
+                "reference": "75e3a18fd48edfc52a2d566f18ef3444948dff22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpMv/phpMv-UI/zipball/514b5fc9e2cd76c4faf7873b99c9e9f11ca0b4e6",
-                "reference": "514b5fc9e2cd76c4faf7873b99c9e9f11ca0b4e6",
+                "url": "https://api.github.com/repos/phpMv/phpMv-UI/zipball/75e3a18fd48edfc52a2d566f18ef3444948dff22",
+                "reference": "75e3a18fd48edfc52a2d566f18ef3444948dff22",
                 "shasum": ""
             },
             "require": {
@@ -98,22 +98,22 @@
             ],
             "support": {
                 "issues": "https://github.com/phpMv/phpMv-UI/issues",
-                "source": "https://github.com/phpMv/phpMv-UI/tree/2.4.4"
+                "source": "https://github.com/phpMv/phpMv-UI/tree/2.4.5"
             },
-            "time": "2021-12-31T13:38:04+00:00"
+            "time": "2022-01-05T00:34:09+00:00"
         },
         {
             "name": "phpmv/ubiquity",
-            "version": "2.4.9",
+            "version": "2.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpMv/ubiquity.git",
-                "reference": "6e4e41bbbcbb727fc2afc9866f7aa63f1e2cbc6e"
+                "reference": "0ba1d1dede85040105cd338b452315694a0fefba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpMv/ubiquity/zipball/6e4e41bbbcbb727fc2afc9866f7aa63f1e2cbc6e",
-                "reference": "6e4e41bbbcbb727fc2afc9866f7aa63f1e2cbc6e",
+                "url": "https://api.github.com/repos/phpMv/ubiquity/zipball/0ba1d1dede85040105cd338b452315694a0fefba",
+                "reference": "0ba1d1dede85040105cd338b452315694a0fefba",
                 "shasum": ""
             },
             "require": {
@@ -156,9 +156,9 @@
             ],
             "support": {
                 "issues": "https://github.com/phpMv/ubiquity/issues",
-                "source": "https://github.com/phpMv/ubiquity/tree/2.4.9"
+                "source": "https://github.com/phpMv/ubiquity/tree/2.4.10"
             },
-            "time": "2022-01-03T01:13:27+00:00"
+            "time": "2022-02-13T18:59:02+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -276,12 +276,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Mbstring\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -554,17 +554,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpMv/ubiquity-attributes.git",
-                "reference": "4726553babe79b4be585c6a01d4ae02a597d91c0"
+                "reference": "b4748ab2bec673371e3f1f513ad4fa2d79185065"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpMv/ubiquity-attributes/zipball/4726553babe79b4be585c6a01d4ae02a597d91c0",
-                "reference": "4726553babe79b4be585c6a01d4ae02a597d91c0",
+                "url": "https://api.github.com/repos/phpMv/ubiquity-attributes/zipball/b4748ab2bec673371e3f1f513ad4fa2d79185065",
+                "reference": "b4748ab2bec673371e3f1f513ad4fa2d79185065",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.0",
-                "phpmv/ubiquity": "^2.4 | dev-domain-based"
+                "phpmv/ubiquity": "^2.4"
             },
             "default-branch": true,
             "type": "extension",
@@ -600,9 +600,9 @@
             ],
             "support": {
                 "issues": "https://github.com/phpMv/ubiquity-attributes/issues",
-                "source": "https://github.com/phpMv/ubiquity-attributes/tree/main"
+                "source": "https://github.com/phpMv/ubiquity-attributes/tree/0.0.11"
             },
-            "time": "2021-10-17T12:02:48+00:00"
+            "time": "2022-02-14T17:16:58+00:00"
         },
         {
             "name": "phpmv/ubiquity-debug",
@@ -661,16 +661,16 @@
         },
         {
             "name": "phpmv/ubiquity-dev",
-            "version": "0.1.30",
+            "version": "0.1.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpMv/ubiquity-dev.git",
-                "reference": "1d250d684c82ebb6c3924558801863c70ee2bedb"
+                "reference": "cc5d5133cfd2eac125aa8d4d37651ba0381c28dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpMv/ubiquity-dev/zipball/1d250d684c82ebb6c3924558801863c70ee2bedb",
-                "reference": "1d250d684c82ebb6c3924558801863c70ee2bedb",
+                "url": "https://api.github.com/repos/phpMv/ubiquity-dev/zipball/cc5d5133cfd2eac125aa8d4d37651ba0381c28dc",
+                "reference": "cc5d5133cfd2eac125aa8d4d37651ba0381c28dc",
                 "shasum": ""
             },
             "require": {
@@ -709,9 +709,9 @@
             ],
             "support": {
                 "issues": "https://github.com/phpMv/ubiquity-dev/issues",
-                "source": "https://github.com/phpMv/ubiquity-dev/tree/0.1.30"
+                "source": "https://github.com/phpMv/ubiquity-dev/tree/0.1.31"
             },
-            "time": "2022-01-18T15:38:45+00:00"
+            "time": "2022-02-13T02:23:33+00:00"
         },
         {
             "name": "phpmv/ubiquity-webtools",
