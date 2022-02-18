@@ -153,6 +153,7 @@ nav > .inline > .liste > ul > li {
 	padding: 0.78571429em 1.5em 0.78571429em;
 	border: none;
 	font-size: large;
+	text-decoration: none !important;
 }
 
 .dash-btn:hover{
