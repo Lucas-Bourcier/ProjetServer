@@ -12,7 +12,7 @@ use Ubiquity\utils\http\UResponse;
 use Ubiquity\utils\http\USession;
 use models\User_;
 use Ubiquity\utils\http\URequest;
-
+use Ubiquity\views\View;
 
 #[Route(path: "/connection",inherited: true,automated: true)]
 class LoginBase extends \Ubiquity\controllers\auth\AuthController{

@@ -45,13 +45,17 @@
 		</a>
 	</div>
 
+
 	<div class="dash-middle">
 	{% block _logoutButton %}
-	<a href="{{authURL}}/connection/terminate" class="ui black button ajax _logout bg-dash" data-target="{{bodySelector}}">
+	<a href="{{authURL}}/connection/terminate" class="ui black button ajax _logout bg-dash" data-target="{{bodySelector}}"/>
+	
+	{% block _logoutButton %}
+	<button onclick="window.location.href ='{{authURL}}/connection/terminate';" class="dash-btn ajax _logout" data-target="{{bodySelector}}">
 		{% block _logoutCaption %}
 		<i class="ui sign out alternate icon"></i> Se déconnecter
 		{% endblock %}
-	</a>
+	</button>
 	{% endblock %}
 	</div>
 </div>
