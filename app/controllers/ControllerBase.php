@@ -1,8 +1,10 @@
 <?php
 namespace controllers;
 
+use Ubiquity\controllers\auth\AuthController;
 use Ubiquity\controllers\Controller;
 use Ubiquity\utils\http\URequest;
+use Ubiquity\utils\http\USession;
 
 /**
  * controllers$ControllerBase

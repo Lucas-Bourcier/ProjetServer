@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "159eecb27b33c303362f1af1589d75cb",
+    "content-hash": "ede9d4e41252f2ff833298f007320f3d",
     "packages": [
         {
             "name": "frameworks/jquery",
@@ -159,6 +159,67 @@
                 "source": "https://github.com/phpMv/ubiquity/tree/2.4.10"
             },
             "time": "2022-02-13T18:59:02+00:00"
+        },
+        {
+            "name": "phpmv/ubiquity-acl",
+            "version": "0.0.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpMv/ubiquity-acl.git",
+                "reference": "d585add085b4f76fbe80fcfca2c8563541502d03"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpMv/ubiquity-acl/zipball/d585add085b4f76fbe80fcfca2c8563541502d03",
+                "reference": "d585add085b4f76fbe80fcfca2c8563541502d03",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "^4.1",
+                "codeception/module-asserts": "^1.0.0",
+                "phpmv/ubiquity-dev": "^0.1"
+            },
+            "type": "extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ubiquity\\": "src/Ubiquity/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jean-Christophe HERON",
+                    "email": "myaddressmail@gmail.com",
+                    "role": "Lead developer"
+                }
+            ],
+            "description": "Access Control Lists for Ubiquity framework",
+            "keywords": [
+                "Devtools",
+                "acl",
+                "framework",
+                "mvc",
+                "php",
+                "php-framework",
+                "security",
+                "tools"
+            ],
+            "support": {
+                "issues": "https://github.com/phpMv/ubiquity-acl/issues",
+                "source": "https://github.com/phpMv/ubiquity-acl/tree/0.0.12"
+            },
+            "time": "2021-12-26T03:33:27+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",

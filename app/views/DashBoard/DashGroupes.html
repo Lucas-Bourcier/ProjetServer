@@ -1,31 +1,12 @@
 <div id="bodyDashBoard">
     <div class="content-dash">
-        <h1>Mes Groupes</h1>
-        {% for groupe in groupes %}
-        <div class="ui centered grid">
-            <div class="height wide computer eight wide tablet sixteen wide mobile column">
-                <div class="ui fluid card">
-                    <div class="content">
-                        <div class="ui right floated header">
-                            {{groupe.id}}
-                        </div>
-                        <div class="header">
-                            <div class="ui header ">
-                                {{groupes.name}}
-                            </div>
-                        </div>
-                        <div class="meta">
-                            Description groupe
-                        </div>
-                        <div class="description">
-                            <div>Nombre de personnes dans le groupe : </div>
-                        </div>
-                    </div>
-                    <div class="ui bottom attached button bg-dash">Voir le groupe</div>
-
-                </div>
+        <div class="ui grid centered middle-btns">
+            <div class="height wide column">
+                <a class="ui blue button btn-crud" href="/CrudVm"><i class="desktop icon"></i>Crud VM</a>
+            </div>
+           <div class="height wide column">
+                <a class="ui purple button btn-crud" href="/CrudUser"><i class="user icon"></i>Crud User</a>
             </div>
         </div>
-        {% endfor %}
     </div>
 </div>

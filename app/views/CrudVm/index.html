@@ -1,0 +1,29 @@
+<div class="ui {{inverted}} segment middle-crud">
+	<div class="ui secondary {{ inverted }} menu">
+		<div class="item">
+			<a id="btAddNew" class="ui {{inverted}} button orange _new">
+			 <i class="icon plus"></i>
+			 {% block _addNewCaption %}
+			Add a new {{classname}}...
+			{% endblock %}
+			</a>
+		</div>
+	</div>
+	<div id='frm-add-update'></div>
+	<div id="dataTable" style="padding: 10px 0px 10px;">
+	{{ q["lv"] | raw }}
+	</div>
+	<div id='table-messages'>
+		{% for msg in messages %}
+			{{ msg | raw }}
+		{% endfor %}
+	</div>
+	<div class="popup container"></div>
+	<div id='table-details'>
+	</div>
+</div>
+{% block script %}
+	{% if hasScript %}
+	{{script_foot | raw}}
+	{% endif %}
+{% endblock %}

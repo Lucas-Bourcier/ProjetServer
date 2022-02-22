@@ -58,8 +58,12 @@ return array(
 			"translate",
 			"themes",
 			"maintenance",
-			"composer"
+			"composer",
+			"security"
 			],
 	"style"=>"inverted",
-	"activeDb"=>"default"
+	"activeDb"=>"default",
+	"selected-acl-providers"=>[
+			"Ubiquity\\security\\acl\\persistence\\AclCacheProvider"
+			]
 	);

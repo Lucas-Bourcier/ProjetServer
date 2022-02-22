@@ -166,6 +166,7 @@ nav > .inline > .liste > ul > li {
 	padding: 30px;
 }
 
+
 .ui.grid {
 	padding: 0;
 }
@@ -336,4 +337,12 @@ margin-right: 2rem !important;
 
 .margin-bot-dash {
 	margin-bottom: 15px;
+}
+
+.btn-crud {
+	width: 100%;
+}
+
+.middle-btns {
+	margin-top: 25% !important;
 }

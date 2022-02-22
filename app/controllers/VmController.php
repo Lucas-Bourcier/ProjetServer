@@ -21,7 +21,7 @@ namespace controllers;
   */
 
  #[\Ubiquity\attributes\items\router\Route("DashBoard/VM")]
-class VmController extends \controllers\ControllerBase{
+class VmController extends ControllerBase{
 
     private ViewRepository $repo;
 
