@@ -2,7 +2,7 @@
     <div class="content-dash">
         <div class="dash-profil">
             <div class="ui card centered">
-                <img class="ui centered image" src="assets/img/admin.png">
+                <img class="ui centered image" src="{{users.image}}">
                 <h2 class="ui centered header">
                     <div class="content dash-transform">
                         {{users.login}}
@@ -11,23 +11,23 @@
                 </h2>
                 <div class="content">
                     <div class="description dash-padding">
-                        Description ou ajout de champs sur le User
+                        {{users.description}}
                     </div>
                 </div>
                 <div class="extra content dash-middle dash-padding ">
-                    <button class="ui linkedin button">
+                    <a class="ui linkedin button" href="{{users.linkedin}}">
                         <i class="linkedin icon"></i>
                         LinkedIn
-                    </button>
-                    <button class="ui black button">
+                    </a>
+                    <a class="ui black button" href="{{users.github}}">
                         <i class="github icon"></i>
                         Github
-                    </button>
+                    </a>
                 </div>
-                <div onclick="window.location.href='';" class="ui bottom bg-dash attached button">
+                <a class="ui bottom bg-dash attached button">
                     <i class="edit icon"></i>
                     Modifier le profil
-                </div>
+                </a>
             </div>
         </div>
     </div>

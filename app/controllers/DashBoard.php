@@ -2,6 +2,7 @@
 namespace controllers;
  use Ajax\php\ubiquity\JsUtils;
  use models\Groupe;
+ use models\Serveur;
  use models\User_;
  use models\Vm;
  use Ubiquity\attributes\items\acl\Allow;
@@ -63,7 +64,7 @@ class DashBoard extends ControllerBase{
 		$this->loadView("DashBoard/index.html", ['name' =>USession::get('name'), 'nbVm' => $nbVm, 'nbGroupes' =>$countGroupes]);
 	}
 
-    #[Route('/DashBoard/VM/MyVM', name: 'dash.vm')]
+    #[Route('/DashBoard/VM/MesVM', name: 'dash.vm')]
     #[Allow(['@ADMIN','@ETUDIANT','@PROF'])]
     public function DashVm(){
         $user_id = USession::get('user_id');
@@ -85,6 +86,12 @@ class DashBoard extends ControllerBase{
         $this->loadView("DashBoard/Dashprofil.html", ['users' => $user]);
     }
 
+    #[Route('/DashBoard/Serveurs', name: 'dash.server')]
+    #[Allow(['@ADMIN','@PROF'])]
+    public function DashServers(){
+        $server = DAO::getAll(Serveur::class);
+        $this->loadView("DashBoard/DashServers.html", ['servers' => $server]);
+    }
 
 
 

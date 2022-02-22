@@ -35,6 +35,21 @@ class User_{
 	private $role;
 
 	
+	#[Column(name: "description",nullable: true,dbType: "varchar(200)")]
+	#[Validator(type: "length",constraints: ["max"=>200])]
+	private $description;
+
+	
+	#[Column(name: "gitHub",nullable: true,dbType: "varchar(250)")]
+	#[Validator(type: "length",constraints: ["max"=>250])]
+	private $gitHub;
+
+	
+	#[Column(name: "linkedin",nullable: true,dbType: "varchar(250)")]
+	#[Validator(type: "length",constraints: ["max"=>250])]
+	private $linkedin;
+
+	
 	#[OneToMany(mappedBy: "user_",className: "models\\Vm")]
 	private $vms;
 
@@ -48,102 +63,114 @@ class User_{
 	#[JoinTable(name: "userservers",joinColumns: ["name"=>"id","referencedColumnName"=>"id"],inverseJoinColumns: ["name"=>"id_1","referencedColumnName"=>"id"])]
 	private $serveurs;
 
-
 	 public function __construct(){
 		$this->vms = [];
 		$this->groupes = [];
 		$this->serveurs = [];
 	}
 
-
 	public function getId(){
 		return $this->id;
 	}
-
 
 	public function setId($id){
 		$this->id=$id;
 	}
 
-
 	public function getLogin(){
 		return $this->login;
 	}
-
 
 	public function setLogin($login){
 		$this->login=$login;
 	}
 
-
 	public function getPassword(){
 		return $this->password;
 	}
-
 
 	public function setPassword($password){
 		$this->password=$password;
 	}
 
-
 	public function getRole(){
 		return $this->role;
 	}
-
 
 	public function setRole($role){
 		$this->role=$role;
 	}
 
 
+	public function getDescription(){
+		return $this->description;
+	}
+
+
+	public function setDescription($description){
+		$this->description=$description;
+	}
+
+
+	public function getGitHub(){
+		return $this->gitHub;
+	}
+
+
+	public function setGitHub($gitHub){
+		$this->gitHub=$gitHub;
+	}
+
+
+	public function getLinkedin(){
+		return $this->linkedin;
+	}
+
+
+	public function setLinkedin($linkedin){
+		$this->linkedin=$linkedin;
+	}
+
 	public function getVms(){
 		return $this->vms;
 	}
 
-
 	public function setVms($vms){
 		$this->vms=$vms;
 	}
-
 
 	 public function addToVms($vm){
 		$this->vms[]=$vm;
 		$vm->setUser_($this);
 	}
 
-
 	public function getGroupes(){
 		return $this->groupes;
 	}
-
 
 	public function setGroupes($groupes){
 		$this->groupes=$groupes;
 	}
 
-
 	 public function addGroupe($groupe){
 		$this->groupes[]=$groupe;
 	}
-
 
 	public function getServeurs(){
 		return $this->serveurs;
 	}
 
-
 	public function setServeurs($serveurs){
 		$this->serveurs=$serveurs;
 	}
-
 
 	 public function addServeur($erveur){
 		$this->serveurs[]=$erveur;
 	}
 
-
 	 public function __toString(){
 		return $this->id.'';
 	}
+
 
 }

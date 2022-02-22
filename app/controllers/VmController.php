@@ -85,9 +85,9 @@ class VmController extends ControllerBase{
          $df=$this->jquery->semantic()->dataForm('frm-vm', $vm);
          $df->setActionTarget(Router::path('vm-update.submit'), '');
          $df->setProperty('method', 'post');
-         $df->setFields(['Number','Name', 'Ip', 'Sshport','Os', 'Groupe', 'Server', 'User_', 'submit']);
+         $df->setFields(['id','Number','Name', 'Ip', 'Sshport','Os', 'Groupe', 'Serveur', 'User_', 'submit']);
          $df->fieldAsDropDown('Groupe', UArrayModels::asKeyValues(DAO::getAll(Groupe::class),'getId'));
-         $df->fieldAsDropDown('Server', UArrayModels::asKeyValues(DAO::getAll(Serveur::class), 'getId'));
+         $df->fieldAsDropDown('Serveur', UArrayModels::asKeyValues(DAO::getAll(Serveur::class), 'getId'));
          $df->fieldAsDropDown('User_', UArrayModels::asKeyValues(DAO::getAll(User_::class), 'getId'));
          $df->fieldAsHidden('id');
          $df->fieldAsSubmit('submit', 'green fluid');

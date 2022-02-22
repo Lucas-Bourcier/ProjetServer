@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 10 fév. 2022 à 13:48
+-- Généré le : mar. 22 fév. 2022 à 22:01
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 8.0.15
 
@@ -88,7 +88,7 @@ CREATE TABLE `serveur` (
 
 INSERT INTO `serveur` (`id`, `ipAddress`, `dnsName`, `login`, `password`) VALUES
 (0, '127.0.0.1', 'LocalHost', 'local', 'local'),
-(1, '172.17.150.26', 'Thom\'s-Machine', 'toto', 'toto');
+(1, '172.17.150.26', 'Thom\'s-Server', 'toto', 'toto');
 
 -- --------------------------------------------------------
 
@@ -138,7 +138,9 @@ CREATE TABLE `userservers` (
 INSERT INTO `userservers` (`id`, `id_1`) VALUES
 (0, 0),
 (1, 1),
-(2, 1);
+(2, 1),
+(3, 0),
+(4, 0);
 
 -- --------------------------------------------------------
 
@@ -150,17 +152,23 @@ CREATE TABLE `user_` (
   `id` int(11) NOT NULL,
   `login` varchar(50) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `role` varchar(50) DEFAULT NULL
+  `role` varchar(50) DEFAULT NULL,
+  `description` varchar(200) DEFAULT NULL,
+  `gitHub` varchar(250) DEFAULT NULL,
+  `linkedin` varchar(250) DEFAULT NULL,
+  `image` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `user_`
 --
 
-INSERT INTO `user_` (`id`, `login`, `password`, `role`) VALUES
-(0, 'admin', 'admin', '@ADMIN'),
-(1, 'toto@gmail.com', 'toto', '@ETUDIANT'),
-(2, 'mathieu', 'mathieu', '@ETUDIANT');
+INSERT INTO `user_` (`id`, `login`, `password`, `role`, `description`, `gitHub`, `linkedin`, `image`) VALUES
+(0, 'admin', 'admin', '@ADMIN', 'tout les droits disponible, pleins pouvoirs', 'https://github.com/Thomas-roulland', 'https://www.linkedin.com/in/thomas-roulland-128a691b5/', 'assets/img/admin.png'),
+(1, 'toto', 'toto', '@ETUDIANT', 'étudiant a plein temps, créer des tonnes de machine', 'https://github.com/Thomas-roulland', 'https://www.linkedin.com/in/thomas-roulland-128a691b5/', 'assets/img/student.png'),
+(2, 'mathieu', 'mathieu', '@ETUDIANT', '', '', '', ''),
+(3, 'tests', 'test', '@ETUDIANT', '', '', '', ''),
+(4, 'profTest', 'prof', '@PROF', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -185,9 +193,12 @@ CREATE TABLE `vm` (
 --
 
 INSERT INTO `vm` (`id`, `number`, `name`, `ip`, `sshPort`, `os`, `idUser`, `idServeur`, `idGroupe`) VALUES
-(1, 1, 'toto\'Machine', '172.14.15.16', 220, 'Linux', 1, 1, 1),
+(1, 1, 'toto\'Machine\'Update', '172.14.15.16', 220, 'Linux', 1, 1, 1),
 (2, 2, 'Test\'Machine', '172.14.15.17', 220, 'Linux', NULL, 1, NULL),
-(3, 3, 'Mathieu', '172.17.15.33', 220, 'Windows', 2, 0, 1);
+(3, 3, 'Mathieu', '172.17.15.33', 220, 'Windows', 2, 0, 1),
+(5, 3, 'test', '127.25.62.12', 220, 'linux', NULL, 1, NULL),
+(6, 69, 'Admin\'Machine', '172.14.15.69', 220, 'Linux', 0, 1, NULL),
+(7, 699, 'Admin\'Machine\'Test', '172.14.15.699', 220, 'linux', 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -281,7 +292,7 @@ ALTER TABLE `vmservices`
 -- AUTO_INCREMENT pour la table `vm`
 --
 ALTER TABLE `vm`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Contraintes pour les tables déchargées
