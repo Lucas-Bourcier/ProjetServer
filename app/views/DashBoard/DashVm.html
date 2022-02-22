@@ -1,9 +1,10 @@
 <div id="bodyDashBoard">
     <div class="content-dash">
         <h1>Mes VM'S</h1>
+        <div class="dash-middle margin-bot-dash">
+            <a class="ui primary button" href="{{path('vm.addVm')}}"><i class="plus icon"></i> Créer une VM</a>
+        </div>
         {% for vm in vms %}
-        <div class="ui centered grid">
-            <div class="height wide computer eight wide tablet sixteen wide mobile column">
                 <div class="ui fluid card">
                     <div class="content">
                         <div class="ui right floated header">
@@ -22,12 +23,14 @@
                             <div>Port SSh : {{ vm.sshport }}</div>
                         </div>
                     </div>
-
-                            <div class="ui bottom attached button bg-dash">Modifier la VM</div>
-
+                    <div class="extra content">
+                        <div class="ui two buttons">
+                            <a class="ui green button" href="{{path('vm.update', [vm.id])}}">Modifier la VM</a>
+                            <a class="ui  red button" href="{{path('vm.delete', [vm.id])}}">Supprimer</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
         {% endfor %}
     </div>
+
 </div>

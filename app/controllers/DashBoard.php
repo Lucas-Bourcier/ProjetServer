@@ -37,7 +37,7 @@ class DashBoard extends \controllers\ControllerBase{
 		$this->loadView("DashBoard/index.html", ['name' =>USession::get('name'), 'nbVm' => $nbVm, 'nbGroupes' =>$countGroupes]);
 	}
 
-    #[Route('/DashBoard/VM', name: 'dash.vm')]
+    #[Route('/DashBoard/VM/MyVM', name: 'dash.vm')]
     public function DashVm(){
         $user_id = USession::get('user_id');
         $vm = DAO::getAll(Vm::class, 'idUser = :idUser', false, ['idUser' => $user_id]);
@@ -57,6 +57,9 @@ class DashBoard extends \controllers\ControllerBase{
         $user = DAO::getById(User_::class, $user_id);
         $this->loadView("DashBoard/Dashprofil.html", ['users' => $user]);
     }
+
+
+
 
 
 }

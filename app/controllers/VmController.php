@@ -20,7 +20,7 @@ namespace controllers;
   * @property JsUtils $jquery
   */
 
- #[\Ubiquity\attributes\items\router\Route("VM")]
+ #[\Ubiquity\attributes\items\router\Route("DashBoard/VM")]
 class VmController extends \controllers\ControllerBase{
 
     private ViewRepository $repo;
@@ -77,4 +77,40 @@ class VmController extends \controllers\ControllerBase{
         }
         $this->index();
     }
+
+
+     #[Get(path: "update/{id}",name: "vm.update")]
+     public function updateForm($id){
+         $vm=$this->repo->byId($id, false);
+         $df=$this->jquery->semantic()->dataForm('frm-vm', $vm);
+         $df->setActionTarget(Router::path('vm-update.submit'), '');
+         $df->setProperty('method', 'post');
+         $df->setFields(['Number','Name', 'Ip', 'Sshport','Os', 'Groupe', 'Server', 'User_', 'submit']);
+         $df->fieldAsDropDown('Groupe', UArrayModels::asKeyValues(DAO::getAll(Groupe::class),'getId'));
+         $df->fieldAsDropDown('Server', UArrayModels::asKeyValues(DAO::getAll(Serveur::class), 'getId'));
+         $df->fieldAsDropDown('User_', UArrayModels::asKeyValues(DAO::getAll(User_::class), 'getId'));
+         $df->fieldAsHidden('id');
+         $df->fieldAsSubmit('submit', 'green fluid');
+         $this->jquery->renderView('VmController/updateForm.html');
+     }
+
+     #[Post('update', name: 'vm-update.submit')]
+     public function update(){
+         $vm=$this->repo->byId(URequest::post('id'));
+         if ($vm){
+             URequest::setValuesToObject($vm);
+             $this->repo->save($vm);
+         }
+         $this->index();
+     }
+
+     #[Get(path: "delete/{id}",name: "vm.delete")]
+     public function delete($id){
+         $vm=$this->repo->byId($id);
+         if($vm){
+             $this->repo->remove($vm);
+         }
+         $this->index();
+
+     }
 }

@@ -26,7 +26,7 @@ class LoginBase extends \Ubiquity\controllers\auth\AuthController{
 		if(isset($urlParts)){
 			$this->_forward(implode("/",$urlParts));
 		}else{
-            UResponse::header('location', '/');
+            UResponse::header('location', '/DashBoard');
 		}
 	}
 
