@@ -54,7 +54,7 @@ class DashBoard extends ControllerBase{
         }
     }
 
-    #[Allow(['@ADMIN','@ETUDIANT'])]
+    #[Allow(['@ADMIN','@ETUDIANT', '@PROF'])]
 	public function index(){
         $user_id = USession::get('user_id');
         $nbVm=DAO::count(Vm::class, 'idUser = :idUser', ['idUser' => $user_id]);
@@ -64,7 +64,7 @@ class DashBoard extends ControllerBase{
 	}
 
     #[Route('/DashBoard/VM/MyVM', name: 'dash.vm')]
-    #[Allow(['@ADMIN','@ETUDIANT'])]
+    #[Allow(['@ADMIN','@ETUDIANT','@PROF'])]
     public function DashVm(){
         $user_id = USession::get('user_id');
         $vm = DAO::getAll(Vm::class, 'idUser = :idUser', false, ['idUser' => $user_id]);
@@ -72,13 +72,13 @@ class DashBoard extends ControllerBase{
     }
 
     #[Route('/DashBoard/Crud', name: 'dash.crud')]
-    #[Allow(['@ADMIN'])]
+    #[Allow(['@ADMIN','@PROF'])]
     public function DashGroupes(){
         $this->loadView("DashBoard/DashGroupes.html");
     }
 
     #[Route('/DashBoard/Profil', name: 'dash.profil')]
-    #[Allow(['@ADMIN','@ETUDIANT'])]
+    #[Allow(['@ADMIN','@ETUDIANT','@PROF'])]
     public function DashProfil(){
         $user_id = USession::get('user_id');
         $user = DAO::getById(User_::class, $user_id);
