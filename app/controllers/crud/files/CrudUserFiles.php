@@ -6,15 +6,15 @@ use Ubiquity\controllers\crud\CRUDFiles;
   * Class CrudUserFiles
   */
 class CrudUserFiles extends CRUDFiles{
-	public function getViewIndex(){
+	public function getViewIndex(): string{
 		return "CrudUser/index.html";
 	}
 
-	public function getViewForm(){
+	public function getViewForm() :string{
 		return "CrudUser/form.html";
 	}
 
-	public function getViewDisplay(){
+	public function getViewDisplay(): string{
 		return "CrudUser/display.html";
 	}
 

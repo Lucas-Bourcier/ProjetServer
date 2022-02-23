@@ -365,5 +365,15 @@ margin-right: 2rem !important;
 }
 
 .textdocu{
-	font-size: 107%;
+	font-size: 120%;
+}
+
+.textdocu2{
+	font-size: 140%;
+}
+
+.titledocu{
+	font-size: 400%;
+	text-decoration: underline;
+	color: Orange;
 }

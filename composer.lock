@@ -104,16 +104,16 @@
         },
         {
             "name": "phpmv/ubiquity",
-            "version": "2.4.10",
+            "version": "2.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpMv/ubiquity.git",
-                "reference": "0ba1d1dede85040105cd338b452315694a0fefba"
+                "reference": "8ca2f47f3f8aa73920b94291364aa1957c07ea38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpMv/ubiquity/zipball/0ba1d1dede85040105cd338b452315694a0fefba",
-                "reference": "0ba1d1dede85040105cd338b452315694a0fefba",
+                "url": "https://api.github.com/repos/phpMv/ubiquity/zipball/8ca2f47f3f8aa73920b94291364aa1957c07ea38",
+                "reference": "8ca2f47f3f8aa73920b94291364aa1957c07ea38",
                 "shasum": ""
             },
             "require": {
@@ -156,9 +156,9 @@
             ],
             "support": {
                 "issues": "https://github.com/phpMv/ubiquity/issues",
-                "source": "https://github.com/phpMv/ubiquity/tree/2.4.10"
+                "source": "https://github.com/phpMv/ubiquity/tree/2.4.11"
             },
-            "time": "2022-02-13T18:59:02+00:00"
+            "time": "2022-02-23T02:36:30+00:00"
         },
         {
             "name": "phpmv/ubiquity-acl",
@@ -722,16 +722,16 @@
         },
         {
             "name": "phpmv/ubiquity-dev",
-            "version": "0.1.31",
+            "version": "0.1.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpMv/ubiquity-dev.git",
-                "reference": "cc5d5133cfd2eac125aa8d4d37651ba0381c28dc"
+                "reference": "60ee001b980a68e6481bd55476addc8dfc00c39f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpMv/ubiquity-dev/zipball/cc5d5133cfd2eac125aa8d4d37651ba0381c28dc",
-                "reference": "cc5d5133cfd2eac125aa8d4d37651ba0381c28dc",
+                "url": "https://api.github.com/repos/phpMv/ubiquity-dev/zipball/60ee001b980a68e6481bd55476addc8dfc00c39f",
+                "reference": "60ee001b980a68e6481bd55476addc8dfc00c39f",
                 "shasum": ""
             },
             "require": {
@@ -770,28 +770,28 @@
             ],
             "support": {
                 "issues": "https://github.com/phpMv/ubiquity-dev/issues",
-                "source": "https://github.com/phpMv/ubiquity-dev/tree/0.1.31"
+                "source": "https://github.com/phpMv/ubiquity-dev/tree/0.1.32"
             },
-            "time": "2022-02-13T02:23:33+00:00"
+            "time": "2022-02-22T00:20:21+00:00"
         },
         {
             "name": "phpmv/ubiquity-webtools",
-            "version": "2.4.14",
+            "version": "2.4.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpMv/ubiquity-webtools.git",
-                "reference": "4ba09b64166804504764f7e0593a2c1871b0afe7"
+                "reference": "06a17ab5c355e2d83ddfae329f75517d2e2f029a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpMv/ubiquity-webtools/zipball/4ba09b64166804504764f7e0593a2c1871b0afe7",
-                "reference": "4ba09b64166804504764f7e0593a2c1871b0afe7",
+                "url": "https://api.github.com/repos/phpMv/ubiquity-webtools/zipball/06a17ab5c355e2d83ddfae329f75517d2e2f029a",
+                "reference": "06a17ab5c355e2d83ddfae329f75517d2e2f029a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.4",
                 "phpmv/php-mv-ui": ">2.2.19",
-                "phpmv/ubiquity-dev": "^0.1"
+                "phpmv/ubiquity-dev": "^0.1 | dev-master"
             },
             "type": "extension",
             "extra": {
@@ -826,9 +826,9 @@
             ],
             "support": {
                 "issues": "https://github.com/phpMv/ubiquity-webtools/issues",
-                "source": "https://github.com/phpMv/ubiquity-webtools/tree/2.4.14"
+                "source": "https://github.com/phpMv/ubiquity-webtools/tree/2.4.15"
             },
-            "time": "2022-01-03T01:10:22+00:00"
+            "time": "2022-02-22T00:20:49+00:00"
         },
         {
             "name": "prismjs/prism",
@@ -932,5 +932,5 @@
         "php": ">=8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.1.0"
 }
