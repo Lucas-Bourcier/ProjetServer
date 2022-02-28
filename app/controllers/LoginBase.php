@@ -54,15 +54,15 @@ class LoginBase extends \Ubiquity\controllers\auth\AuthController{
 	 * {@inheritDoc}
 	 * @see \Ubiquity\controllers\auth\AuthController::isValidUser()
 	 */
-	public function _isValidUser($action=null): bool {
+	public function _isValidUser($action=null) :bool{
 		return USession::exists($this->_getUserSessionKey());
 	}
 
-	public function _getBaseRoute(): string {
+	public function _getBaseRoute() :string {
 		return '/connection';
 	}
 
-    public function _getLoginInputName(): string {
+    public function _getLoginInputName() :string {
         return "email";
     }
 
@@ -70,7 +70,6 @@ class LoginBase extends \Ubiquity\controllers\auth\AuthController{
     {
         return new LoginBaseFiles();
     }
-
 
     protected function finalizeAuth()
     {
@@ -101,7 +100,8 @@ class LoginBase extends \Ubiquity\controllers\auth\AuthController{
     }
 
 
-    public function _displayInfoAsString(): bool{
+    public function _displayInfoAsString():bool
+    {
         return true;
     }
 

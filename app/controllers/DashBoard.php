@@ -90,11 +90,7 @@ class DashBoard extends ControllerBase{
     #[Allow(['@ADMIN','@PROF'])]
     public function DashServers(){
         $server = DAO::getAll(Serveur::class);
+        $dns = DAO::getAll();
         $this->loadView("DashBoard/DashServers.html", ['servers' => $server]);
     }
-
-
-
-
-
 }

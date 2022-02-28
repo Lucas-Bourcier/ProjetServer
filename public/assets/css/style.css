@@ -365,15 +365,14 @@ margin-right: 2rem !important;
 }
 
 .textdocu{
-	font-size: 120%;
+	font-size: 107%;
 }
 
-.textdocu2{
-	font-size: 140%;
+.dt-50{
+	width: 50%;
 }
 
-.titledocu{
-	font-size: 400%;
-	text-decoration: underline;
-	color: Orange;
+.middle-dt {
+	display: flex;
+	justify-content: center;
 }

@@ -11,7 +11,7 @@ return array(
 			"options"=>[],
 			"cache"=>false
 			],
-	"sessionName"=>"s61f7baf559879",
+	"sessionName"=>"s61f7baf559879composer global require phpmv/ubiquity-devtools",
 	"namespaces"=>[],
 	"templateEngine"=>"Ubiquity\\views\\engine\\Twig",
 	"templateEngineOptions"=>[
