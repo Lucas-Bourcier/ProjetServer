@@ -22,6 +22,8 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+CREATE DATABASE proxmox ;
+USE proxmox ;
 
 --
 -- Structure de la table `dns`
