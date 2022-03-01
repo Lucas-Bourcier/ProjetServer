@@ -83,7 +83,7 @@ class DashBoard extends ControllerBase{
     public function DashProfil(){
         $user_id = USession::get('user_id');
         $user = DAO::getById(User_::class, $user_id);
-        $this->loadView("DashBoard/Dashprofil.html", ['users' => $user]);
+        $this->loadView("DashBoard/DashProfil.html", ['users' => $user]);
     }
 
     #[Route('/DashBoard/Serveurs', name: 'dash.server')]
