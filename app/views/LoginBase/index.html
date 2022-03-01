@@ -7,13 +7,13 @@
 {% block _form %}
 <form id="frm-login" class="ui form" name="frm-login" method="post" action="{{action}}">
 {% block _header %}
-<h4 class="ui header dividing">Connection</h4> 
+<h4 class="ui header dividing">Connection</h4>
 {% endblock %}
 {% block _fields %}
 <div class="two fields">
 	{% block _fieldLogin %}
 	<div class="field required">
-	<label for="{{loginInputName}}">{{loginLabel}}</label> 
+	<label for="{{loginInputName}}">{{loginLabel}}</label>
 	<div class="ui input">
 		{% block _login %}
 		<input id="{{loginInputName}}" name="{{loginInputName}}" type="text" placeholder="{{loginLabel}}">
@@ -37,7 +37,7 @@
 	{% block _fieldRemember %}
 		<div class="field">
 			<div class="ui checkbox">
-				<input id="ck-remember" name="ck-remember" value="1" type="checkbox" placeholder="Remember" tabindex="0" class="hidden"> 
+				<input id="ck-remember" name="ck-remember" value="1" type="checkbox" placeholder="Remember" tabindex="0" class="hidden">
 				<label for="ck-remember">{{rememberCaption}}</label>
 			</div>
 		</div>
