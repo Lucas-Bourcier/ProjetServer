@@ -45,13 +45,13 @@ class User_{
 	private $gitHub;
 
 	
-	#[Column(name: "linkedin",nullable: true,dbType: "varchar(250)")]
-	#[Validator(type: "length",constraints: ["max"=>250])]
+	#[Column(name: "linkedin",nullable: true,dbType: "varchar(200)")]
+	#[Validator(type: "length",constraints: ["max"=>200])]
 	private $linkedin;
 
 	
-	#[Column(name: "image",dbType: "varchar(200)")]
-	#[Validator(type: "length",constraints: ["max"=>200,"notNull"=>true])]
+	#[Column(name: "image",nullable: true,dbType: "varchar(200)")]
+	#[Validator(type: "length",constraints: ["max"=>200])]
 	private $image;
 
 	
@@ -130,11 +130,9 @@ class User_{
 		$this->linkedin=$linkedin;
 	}
 
-
 	public function getImage(){
 		return $this->image;
 	}
-
 
 	public function setImage($image){
 		$this->image=$image;

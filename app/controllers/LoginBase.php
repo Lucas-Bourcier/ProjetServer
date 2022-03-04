@@ -1,6 +1,6 @@
 <?php
 namespace controllers;
-use Ubiquity\attributes\items\router\Get;
+use models\User;
 use Ubiquity\attributes\items\router\Post;
 use Ubiquity\attributes\items\router\Route;
 use Ubiquity\cache\CacheManager;
@@ -12,7 +12,6 @@ use Ubiquity\utils\http\UResponse;
 use Ubiquity\utils\http\USession;
 use models\User_;
 use Ubiquity\utils\http\URequest;
-use Ubiquity\views\View;
 
 #[Route(path: "/connection",inherited: true,automated: true)]
 class LoginBase extends \Ubiquity\controllers\auth\AuthController{
@@ -31,7 +30,7 @@ class LoginBase extends \Ubiquity\controllers\auth\AuthController{
 	}
 
     #[Post(path:"/connect", name:"LoginBase.connect")]
-	protected function _connect() {
+    protected function _connect() {
         if(URequest::isPost()){
             $login=URequest::post($this->_getLoginInputName());
             // $password=URequest::post($this->_getPasswordInputName());
@@ -85,13 +84,6 @@ class LoginBase extends \Ubiquity\controllers\auth\AuthController{
         }
     }
 
-    #[Get(path: "newUser",name: "LoginBase.newUserForm")]
-    public function newUserForm(){
-
-        $this->loadView('LoginBase/newUserForm.html');
-
-    }
-
     protected function terminateMessage(FlashMessage $fMessage)
     {
         $fMessage->setIcon("checkmark");
@@ -105,16 +97,26 @@ class LoginBase extends \Ubiquity\controllers\auth\AuthController{
         return true;
     }
 
-    #[Post(path: "newUser",name: "LoginBase.newUser")]
-    public function newUser(){
-        $email=URequest::post('email');
-        $key='datas/users'.md5($email);
-        if (!CacheManager::$cache->exists($key)){
-            CacheManager::$cache->store($key,['login'=>$email,'password'=>URequest::password_hash('password')]);
-            $this->showMessage('Création de compte', "votre compte a été créé avec l'email <b>$email</b>", 'succes');
-        }else{
-            $this->showMessage('Création de compte', "Compte déjà associé a l'email : <b>$email</b>", 'error', 'user');
+    public function hasAccountCreation(): bool
+    {
+        return true;
+    }
+
+    public function _newAccountCreationRule(string $accountName): ?bool
+    {
+        $excluded=['admin','root','Admin'];
+        return \array_search($accountName, $excluded)===false && filter_var($accountName, FILTER_SANITIZE_SPECIAL_CHARS)!==false;
+    }
+
+    protected function _create(string $login, string $password): ?bool
+    {
+        if(!DAO::exists(User_::class,'login= ?', [$login])){
+        $user= new User_();
+        $user->setLogin($login);
+        $user->setPassword(URequest::password_hash('password'));
+        return DAO::insert($user);
         }
+        return false;
     }
 
 }

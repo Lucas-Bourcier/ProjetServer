@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 22 fév. 2022 à 22:01
--- Version du serveur : 10.4.22-MariaDB
--- Version de PHP : 8.0.15
+-- Généré le : ven. 04 mars 2022 à 11:27
+-- Version du serveur : 10.4.19-MariaDB
+-- Version de PHP : 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -22,8 +22,6 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
-CREATE DATABASE proxmox ;
-USE proxmox ;
 
 --
 -- Structure de la table `dns`
@@ -35,7 +33,7 @@ CREATE TABLE `dns` (
   `port` int(11) DEFAULT NULL,
   `dnsName` varchar(255) DEFAULT NULL,
   `idServer` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -46,14 +44,7 @@ CREATE TABLE `dns` (
 CREATE TABLE `groupe` (
   `id` int(11) NOT NULL,
   `name` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `groupe`
---
-
-INSERT INTO `groupe` (`id`, `name`) VALUES
-(1, 'Etudiant');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -68,7 +59,7 @@ CREATE TABLE `route` (
   `hostDest` varchar(15) DEFAULT NULL,
   `order_` int(11) DEFAULT NULL,
   `idServer` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -82,15 +73,7 @@ CREATE TABLE `serveur` (
   `dnsName` varchar(255) DEFAULT NULL,
   `login` varchar(50) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `serveur`
---
-
-INSERT INTO `serveur` (`id`, `ipAddress`, `dnsName`, `login`, `password`) VALUES
-(0, '127.0.0.1', 'LocalHost', 'local', 'local'),
-(1, '172.17.150.26', 'Thom\'s-Server', 'toto', 'toto');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -101,7 +84,7 @@ INSERT INTO `serveur` (`id`, `ipAddress`, `dnsName`, `login`, `password`) VALUES
 CREATE TABLE `service` (
   `id` int(11) NOT NULL,
   `service` varchar(150) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -112,15 +95,7 @@ CREATE TABLE `service` (
 CREATE TABLE `usergroups` (
   `idUser` int(11) NOT NULL,
   `idGroupe` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `usergroups`
---
-
-INSERT INTO `usergroups` (`idUser`, `idGroupe`) VALUES
-(1, 1),
-(2, 1);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -131,18 +106,7 @@ INSERT INTO `usergroups` (`idUser`, `idGroupe`) VALUES
 CREATE TABLE `userservers` (
   `id` int(11) NOT NULL,
   `id_1` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `userservers`
---
-
-INSERT INTO `userservers` (`id`, `id_1`) VALUES
-(0, 0),
-(1, 1),
-(2, 1),
-(3, 0),
-(4, 0);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -157,20 +121,16 @@ CREATE TABLE `user_` (
   `role` varchar(50) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
   `gitHub` varchar(250) DEFAULT NULL,
-  `linkedin` varchar(250) DEFAULT NULL,
-  `image` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `linkedin` varchar(200) DEFAULT NULL,
+  `image` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `user_`
 --
 
 INSERT INTO `user_` (`id`, `login`, `password`, `role`, `description`, `gitHub`, `linkedin`, `image`) VALUES
-(0, 'admin', 'admin', '@ADMIN', 'tout les droits disponible, pleins pouvoirs', 'https://github.com/Thomas-roulland', 'https://www.linkedin.com/in/thomas-roulland-128a691b5/', 'assets/img/admin.png'),
-(1, 'toto', 'toto', '@ETUDIANT', 'étudiant a plein temps, créer des tonnes de machine', 'https://github.com/Thomas-roulland', 'https://www.linkedin.com/in/thomas-roulland-128a691b5/', 'assets/img/student.png'),
-(2, 'mathieu', 'mathieu', '@ETUDIANT', '', '', '', ''),
-(3, 'tests', 'test', '@ETUDIANT', '', '', '', ''),
-(4, 'profTest', 'prof', '@PROF', '', '', '', '');
+(1, 'toto', '$2y$10$rNOKTKg7e9LIA8bmu51Boe2dDOai4vRbpH/sHrxOy2QJIbHc0LtUm', '@ADMIN', 'Dieu est tout puissant.', 'https://github.com/Thomas-roulland', 'https://www.linkedin.com/in/thomas-roulland-128a691b5/', 'assets/img/admin.png');
 
 -- --------------------------------------------------------
 
@@ -188,19 +148,7 @@ CREATE TABLE `vm` (
   `idUser` int(11) DEFAULT NULL,
   `idServeur` int(11) NOT NULL,
   `idGroupe` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `vm`
---
-
-INSERT INTO `vm` (`id`, `number`, `name`, `ip`, `sshPort`, `os`, `idUser`, `idServeur`, `idGroupe`) VALUES
-(1, 1, 'toto\'Machine\'Update', '172.14.15.16', 220, 'Linux', 1, 1, 1),
-(2, 2, 'Test\'Machine', '172.14.15.17', 220, 'Linux', NULL, 1, NULL),
-(3, 3, 'Mathieu', '172.17.15.33', 220, 'Windows', 2, 0, 1),
-(5, 3, 'test', '127.25.62.12', 220, 'linux', NULL, 1, NULL),
-(6, 69, 'Admin\'Machine', '172.14.15.69', 220, 'Linux', 0, 1, NULL),
-(7, 699, 'Admin\'Machine\'Test', '172.14.15.699', 220, 'linux', 0, 1, NULL);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -212,7 +160,7 @@ CREATE TABLE `vmservices` (
   `idVm` int(11) NOT NULL,
   `idService` int(11) NOT NULL,
   `port` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Index pour les tables déchargées
@@ -291,10 +239,46 @@ ALTER TABLE `vmservices`
 --
 
 --
+-- AUTO_INCREMENT pour la table `dns`
+--
+ALTER TABLE `dns`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `groupe`
+--
+ALTER TABLE `groupe`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `route`
+--
+ALTER TABLE `route`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `serveur`
+--
+ALTER TABLE `serveur`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `service`
+--
+ALTER TABLE `service`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `user_`
+--
+ALTER TABLE `user_`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT pour la table `vm`
 --
 ALTER TABLE `vm`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Contraintes pour les tables déchargées
@@ -338,8 +322,8 @@ ALTER TABLE `vm`
 -- Contraintes pour la table `vmservices`
 --
 ALTER TABLE `vmservices`
-  ADD CONSTRAINT `vmservices_ibfk_2` FOREIGN KEY (`idService`) REFERENCES `service` (`id`),
-  ADD CONSTRAINT `vmservices_ibfk_3` FOREIGN KEY (`idVm`) REFERENCES `vm` (`id`);
+  ADD CONSTRAINT `vmservices_ibfk_1` FOREIGN KEY (`idVm`) REFERENCES `vm` (`id`),
+  ADD CONSTRAINT `vmservices_ibfk_2` FOREIGN KEY (`idService`) REFERENCES `service` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

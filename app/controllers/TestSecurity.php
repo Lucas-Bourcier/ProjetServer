@@ -44,9 +44,6 @@ class TestSecurity extends \controllers\ControllerBase {
         }else{
             echo '<h2>marche po</h2>';
         }
-        protected function getAuthController(){
-
-        }
     }
 
     protected function getAuthController(): AuthController
