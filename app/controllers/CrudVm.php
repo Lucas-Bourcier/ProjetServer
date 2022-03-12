@@ -19,7 +19,7 @@ class CrudVm extends \Ubiquity\controllers\crud\CRUDController{
 		$this->style='';
 	}
 
-	public function _getBaseRoute() {
+	public function _getBaseRoute():string {
 		return '/crudVm';
 	}
 	

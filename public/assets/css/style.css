@@ -360,6 +360,7 @@ margin-right: 2rem !important;
 .middle-btns {
 	margin-top: 25% !important;
 }
+<<<<<<< HEAD
 
 .padd-form {
 	padding: 15px;
@@ -368,4 +369,21 @@ margin-right: 2rem !important;
 .bg-btn-server {
 	background-color: #1b1c1d !important;
 	color: white !important;
+=======
+.logoHeader{
+	width: 14%;
+}
+
+.textdocu{
+	font-size: 107%;
+}
+
+.dt-50{
+	width: 50%;
+}
+
+.middle-dt {
+	display: flex;
+	justify-content: center;
+>>>>>>> 4f8e3b445eee88f3c2be42c74374c12fa0651dfb
 }

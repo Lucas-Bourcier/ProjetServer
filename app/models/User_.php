@@ -45,9 +45,14 @@ class User_{
 	private $gitHub;
 
 	
-	#[Column(name: "linkedin",nullable: true,dbType: "varchar(250)")]
-	#[Validator(type: "length",constraints: ["max"=>250])]
+	#[Column(name: "linkedin",nullable: true,dbType: "varchar(200)")]
+	#[Validator(type: "length",constraints: ["max"=>200])]
 	private $linkedin;
+
+	
+	#[Column(name: "image",nullable: true,dbType: "varchar(200)")]
+	#[Validator(type: "length",constraints: ["max"=>200])]
+	private $image;
 
 	
 	#[OneToMany(mappedBy: "user_",className: "models\\Vm")]
@@ -101,34 +106,36 @@ class User_{
 		$this->role=$role;
 	}
 
-
 	public function getDescription(){
 		return $this->description;
 	}
-
 
 	public function setDescription($description){
 		$this->description=$description;
 	}
 
-
 	public function getGitHub(){
 		return $this->gitHub;
 	}
-
 
 	public function setGitHub($gitHub){
 		$this->gitHub=$gitHub;
 	}
 
-
 	public function getLinkedin(){
 		return $this->linkedin;
 	}
 
-
 	public function setLinkedin($linkedin){
 		$this->linkedin=$linkedin;
+	}
+
+	public function getImage(){
+		return $this->image;
+	}
+
+	public function setImage($image){
+		$this->image=$image;
 	}
 
 	public function getVms(){
