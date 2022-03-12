@@ -360,3 +360,12 @@ margin-right: 2rem !important;
 .middle-btns {
 	margin-top: 25% !important;
 }
+
+.padd-form {
+	padding: 15px;
+}
+
+.bg-btn-server {
+	background-color: #1b1c1d !important;
+	color: white !important;
+}

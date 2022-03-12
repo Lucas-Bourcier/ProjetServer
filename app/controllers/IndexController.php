@@ -45,4 +45,9 @@ class IndexController extends ControllerBase {
         $group = DAO::getAll(Groupe::class);
         $this->jquery->renderView('IndexController/groups.html', ['groups' => $group]);
     }
+
+    #[Route("/Documentation", name: "user.home")]
+    public function Documentation(){
+        $this->jquery->renderView('IndexController/groups.html', ['groups' => $group]);
+    }
 }

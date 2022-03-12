@@ -1,27 +1,44 @@
 <div id="bodyDashBoard">
     <div class="content-dash">
-        {% for server in servers %}
-        <div class="ui fluid card">
-            <div class="content">
-                <div class="ui right floated header">
-                    {{ server.id }}
-                </div>
-                <div class="header">
-                    <div class="ui header ">
-                        {{ server.dnsname }}
+        <div class="ui segment">
+            <div class="ui grid">
+                <div class="seven wide column">
+                    <div class="ui form">
+                        <h2>Proriétés</h2>
+                        <div class="field">
+                            <input type="text" name="first-name" placeholder="Dns Name">
+                        </div>
+                        <div class="field">
+                            <input type="text" name="first-name" placeholder="IP Address">
+                        </div>
                     </div>
                 </div>
-                <div class="meta">
-                    Adresse Ip : {{ server.ipaddress }}
-                </div>
-
-            </div>
-            <div class="extra content">
-                <div class="ui two buttons">
-                    <a class="ui green button" href="{{path('vm.update', [vm.id])}}">Connection au serveur</a>
+                <div class="seven wide right floated column">
+                    <div class="ui segment">
+                        <a class="ui black ribbon label">Connexion</a>
+                        <div class="ui form padd-form">
+                            <div class="field">
+                                <input type="text" name="Login" placeholder="Login">
+                            </div>
+                            <div class="field">
+                                <input type="password" name="Password" placeholder="Password">
+                            </div>
+                            <div>
+                                <button class="ui button fluid bg-dash"> Connexion </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        {% endfor %}
+        <div class="ui grid centered">
+            <div class="height wide column">
+                <button class="ui fluid button bg-btn-server">Créer le serveur</button>
+            </div>
+            <div class="height wide column">
+                <button class="ui fluid button bg-btn-server">Annuler</button>
+            </div>
+        </div>
+
     </div>
 </div>
