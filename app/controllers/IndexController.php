@@ -5,8 +5,6 @@ use models\Groupe;
 use models\Route;
 use models\Serveur;
 use models\User_;
-use models\Vm;
-use Ubiquity\attributes\items\router\Get;
 use Ubiquity\attributes\items\router\Post;
 use Ubiquity\controllers\Router;
 use Ubiquity\orm\DAO;

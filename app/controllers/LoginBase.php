@@ -29,7 +29,6 @@ class LoginBase extends \Ubiquity\controllers\auth\AuthController{
 		}
 	}
 
-    #[Post(path:"/connect", name:"LoginBase.connect")]
     protected function _connect() {
         if(URequest::isPost()){
             $login=URequest::post($this->_getLoginInputName());

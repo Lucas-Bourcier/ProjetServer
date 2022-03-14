@@ -1,42 +1,44 @@
 <div id="bodyDashBoard">
     <div class="content-dash">
-        <div class="ui segment">
-            <div class="ui grid">
-                <div class="seven wide column">
-                    <div class="ui form">
-                        <h2>Proriétés</h2>
-                        <div class="field">
-                            <input type="text" name="first-name" placeholder="Dns Name">
+        <form class="ui form" action="{{ path('dash.postAdd') }}" method="post" id="form-server">
+            <div class="ui segment">
+                    <div class="ui grid">
+                        <div class="seven wide column">
+                                <h2>Proriétés</h2>
+                                <div class="field">
+                                    <input type="text" name="dnsname" placeholder="Dns Name">
+                                </div>
+                                <div class="field">
+                                    <input type="text" name="ipaddress" placeholder="IP Address">
+                                </div>
                         </div>
-                        <div class="field">
-                            <input type="text" name="first-name" placeholder="IP Address">
-
+                        <div class="seven wide right floated column">
+                            <div class="ui segment">
+                                <a class="ui black ribbon label">Connexion</a>
+                                <div class="padd-form">
+                                    <div class="field">
+                                        <input type="text" name="login" placeholder="Login">
+                                    </div>
+                                    <div class= "field">
+                                        <input type="text" name="password" placeholder="Password">
+                                    </div>
+                                    <div class="dash-server-btn">
+                                        <button id="btn-connexion" class="ui fluid bg-dash button" >Se connecter au serveur et lister les VM's</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="seven wide right floated column">
-                    <div class="ui segment">
-                        <a class="ui black ribbon label">Connexion</a>
-                        <div class="ui form padd-form">
-                            <div class="field">
-                                <input type="text" placeholder="Login">
-                            </div>
-                            <div class= "field">
-                                <input type="text" placeholder="Password">
-                            </div>
-                            <div class="dash-server-btn">
-                                <button class="ui fluid bg-dash button">Se connecter au serveur et lister les VM's</button>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="ui two column centered grid">
+                <div class="column"><button class="ui fluid clr-btn button">Créer le serveur</button></div>
+                <div class="column"><button class="ui fluid clr-btn button">Annuler</button></div>
             </div>
+        </form>
+        <div id="template-server">
+
         </div>
     </div>
-        <div class="ui two column centered grid">
-            <div class="column"><button class="ui fluid clr-btn button">Créer le serveur</button></div>
-            <div class="column"><button class="ui fluid clr-btn button">Annuler</button></div>
-        </div>
-        {{ q['dt-vms']|raw }}
 </div>
+
 {{ script_foot |raw }}

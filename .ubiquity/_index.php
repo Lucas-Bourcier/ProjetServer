@@ -16,7 +16,7 @@ if (\class_exists("\\Monolog\\Logger")) {
 	\Ubiquity\log\Logger::init($config);
 }
 
-//\Ubiquity\debug\Debugger::start($config);
+\Ubiquity\debug\Debugger::start($config);
 
 require ROOT . 'config/services.php';
 

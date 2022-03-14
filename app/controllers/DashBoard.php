@@ -10,10 +10,12 @@ namespace controllers;
  use Ubiquity\attributes\items\router\Route;
  use Ubiquity\controllers\auth\AuthController;
  use Ubiquity\controllers\auth\WithAuthTrait;
+ use Ubiquity\controllers\Router;
  use Ubiquity\orm\DAO;
  use Ubiquity\security\acl\controllers\AclControllerTrait;
  use Ubiquity\utils\http\URequest;
  use Ubiquity\utils\http\USession;
+ use Ubiquity\attributes\items\router\Post;
 
  /**
   * Controller DashBoard
@@ -91,13 +93,31 @@ class DashBoard extends ControllerBase{
     #[Allow(['@ADMIN','@PROF'])]
     public function DashServers(){
         $server = DAO::getAll(Serveur::class);
-        $api = new ProxmoxApi('62.210.189.36','sio2a','sio2a');
+        $this->jquery->postFormOnClick('#btn-connexion',Router::path('dash.postConnexion'),'form-server','#template-server',['hasLoader'=>'internal']);
+        $this->jquery->renderView("DashBoard/DashServers.html", ['servers' => $server]);
+    }
+
+    #[Post(path: "add",name: "dash.postAdd")]
+    #[Allow(['@ADMIN','@PROF'])]
+    public function postAdd(){
+        $server = New Serveur();
+       URequest::setValuesToObject($server);
+       if(DAO::insert($server)){
+
+       }
+    }
+
+    #[Post(path: "server/connexion",name: "dash.postConnexion")]
+    #[Allow(['@ADMIN','@PROF'])]
+    public function Connexion(){
+        $api = new ProxmoxApi(URequest::post("ipaddress"),URequest::post("login"),URequest::post("password"));
         $vms=$api->getVMs();
         $dt=$this->jquery->semantic()->dataTable('dt-vms', \stdClass::class,$vms);
         $dt->setFields(['vmid','name',]);
         $dt->setHasCheckboxes(true);
         $dt->fieldAsLabel('vmid', 'server');
-        $this->jquery->renderView("DashBoard/DashServers.html", ['servers' => $server]);
-        $this->loadView("DashBoard/DashServers.html", ['servers' => $server]);
+        $dt->setCompact(true);
+        $this->jquery->renderView("/Dashboard/connexion.html");
     }
+
 }
