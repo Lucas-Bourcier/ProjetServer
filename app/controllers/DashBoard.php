@@ -5,6 +5,7 @@ namespace controllers;
  use models\Serveur;
  use models\User_;
  use models\Vm;
+ use PHPMV\ProxmoxApi;
  use Ubiquity\attributes\items\acl\Allow;
  use Ubiquity\attributes\items\router\Route;
  use Ubiquity\controllers\auth\AuthController;
@@ -90,6 +91,13 @@ class DashBoard extends ControllerBase{
     #[Allow(['@ADMIN','@PROF'])]
     public function DashServers(){
         $server = DAO::getAll(Serveur::class);
-        $this->loadView("DashBoard/DashServers.html", ['servers' => $server]);
+        $api = new ProxmoxApi('62.210.189.36','sio2a','sio2a');
+        $vms=$api->getVMs();
+        $dt=$this->jquery->semantic()->dataTable('dt-vms', \stdClass::class,$vms);
+        $dt->setFields(['vmid','name',]);
+        $dt->setHasCheckboxes(true);
+        $dt->fieldAsLabel('vmid', 'server');
+        
+        $this->jquery->renderView("DashBoard/DashServers.html", ['servers' => $server]);
     }
 }

@@ -376,3 +376,17 @@ margin-right: 2rem !important;
 	display: flex;
 	justify-content: center;
 }
+
+.dash-server-btn{
+	width: 100%;
+	margin-top: 15px;
+}
+
+.padd-form{
+	padding: 15px !important;
+}
+
+.clr-btn{
+	background-color:#1b1c1d !important;
+	color: white !important;
+}

@@ -1,27 +1,42 @@
 <div id="bodyDashBoard">
     <div class="content-dash">
-        {% for server in servers %}
-        <div class="ui fluid card">
-            <div class="content">
-                <div class="ui right floated header">
-                    {{ server.id }}
-                </div>
-                <div class="header">
-                    <div class="ui header ">
-                        {{ server.dnsname }}
+        <h1>Ajout d'un serveur</h1>
+        <div class="ui segment">
+            <div class="ui grid">
+                <div class="seven wide column">
+                    <h2>Propriétés</h2>
+                    <div class="ui form">
+                        <div class="field">
+                            <input type="text" placeholder="DNS name">
+                        </div>
+                        <div class="field">
+                            <input type="text" placeholder="IP Address">
+                        </div>
                     </div>
                 </div>
-                <div class="meta">
-                    Adresse Ip : {{ server.ipaddress }}
-                </div>
-
-            </div>
-            <div class="extra content">
-                <div class="ui two buttons">
-                    <a class="ui green button" href="{{path('vm.update', [vm.id])}}">Connection au serveur</a>
+                <div class="seven wide right floated column">
+                    <div class="ui segment">
+                        <a class="ui black ribbon label">Connexion</a>
+                        <div class="ui form padd-form">
+                            <div class="field">
+                                <input type="text" placeholder="Login">
+                            </div>
+                            <div class= "field">
+                                <input type="text" placeholder="Password">
+                            </div>
+                            <div class="dash-server-btn">
+                                <button class="ui fluid bg-dash button">Se connecter au serveur et lister les VM's</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        {% endfor %}
+        <div class="ui two column centered grid">
+            <div class="column"><button class="ui fluid clr-btn button">Créer le serveur</button></div>
+            <div class="column"><button class="ui fluid clr-btn button">Annuler</button></div>
+        </div>
+        {{ q['dt-vms']|raw }}
     </div>
 </div>
+{{ script_foot |raw }}

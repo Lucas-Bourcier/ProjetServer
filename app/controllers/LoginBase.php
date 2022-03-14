@@ -48,7 +48,7 @@ class LoginBase extends \Ubiquity\controllers\auth\AuthController{
         }
         return;
     }
-	
+
 	/**
 	 * {@inheritDoc}
 	 * @see \Ubiquity\controllers\auth\AuthController::isValidUser()
@@ -118,5 +118,4 @@ class LoginBase extends \Ubiquity\controllers\auth\AuthController{
         }
         return false;
     }
-
 }

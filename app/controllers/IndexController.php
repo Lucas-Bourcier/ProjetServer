@@ -11,6 +11,7 @@ use Ubiquity\attributes\items\router\Post;
 use Ubiquity\controllers\Router;
 use Ubiquity\orm\DAO;
 use Ubiquity\utils\http\URequest;
+use Ubiquity\utils\http\UResponse;
 use Ubiquity\utils\http\USession;
 use Ubiquity\utils\models\UArrayModels;
 
@@ -49,5 +50,15 @@ class IndexController extends ControllerBase {
     #[Route("/Documentation", name: "documentation.home")]
     public function Documentation(){
         $this->jquery->renderView('IndexController/Documentation.html');
+    }
+
+    #[POST('ModifMdp/update',name: 'orgas.submit')]
+    public function update(){
+        $mdp=DAO::getOne(User_::class, 'login=login',false,['login'=>$login]);
+        if($mdp){
+            URequest::setValuesToObject($mdp);
+            $this->save($mdp);
+        }
+        UResponse::header('location', '/DashBoard');
     }
 }
