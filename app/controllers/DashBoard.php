@@ -91,6 +91,7 @@ class DashBoard extends ControllerBase{
     #[Allow(['@ADMIN','@PROF'])]
     public function DashServers(){
         $server = DAO::getAll(Serveur::class);
+<<<<<<< HEAD
         $api = new ProxmoxApi('62.210.189.36','sio2a','sio2a');
         $vms=$api->getVMs();
         $dt=$this->jquery->semantic()->dataTable('dt-vms', \stdClass::class,$vms);
@@ -99,5 +100,9 @@ class DashBoard extends ControllerBase{
         $dt->fieldAsLabel('vmid', 'server');
         
         $this->jquery->renderView("DashBoard/DashServers.html", ['servers' => $server]);
+=======
+        $user=DAO::getById(User_::class,1,['groupes']);
+        $this->loadView("DashBoard/DashServers.html", ['servers' => $server]);
+>>>>>>> 9ffffb45f954c129a83e521c83f5e076123b3233
     }
 }

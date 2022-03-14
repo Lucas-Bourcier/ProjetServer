@@ -360,6 +360,16 @@ margin-right: 2rem !important;
 .middle-btns {
 	margin-top: 25% !important;
 }
+<<<<<<< HEAD
+
+.padd-form {
+	padding: 15px;
+}
+
+.bg-btn-server {
+	background-color: #1b1c1d !important;
+	color: white !important;
+=======
 .logoHeader{
 	width: 14%;
 }
@@ -375,6 +385,7 @@ margin-right: 2rem !important;
 .middle-dt {
 	display: flex;
 	justify-content: center;
+<<<<<<< HEAD
 }
 
 .dash-server-btn{
@@ -389,4 +400,7 @@ margin-right: 2rem !important;
 .clr-btn{
 	background-color:#1b1c1d !important;
 	color: white !important;
+=======
+>>>>>>> 4f8e3b445eee88f3c2be42c74374c12fa0651dfb
+>>>>>>> 9ffffb45f954c129a83e521c83f5e076123b3233
 }
