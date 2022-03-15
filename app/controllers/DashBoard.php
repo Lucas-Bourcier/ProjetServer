@@ -132,7 +132,7 @@ class DashBoard extends ControllerBase{
         });
         $dt->fieldAsLabel('vmid', 'server');
         $dt->setCompact(true);
-        $this->jquery->renderView("/Dashboard/connexion.html");
+        $this->jquery->renderView("/DashBoard/connexion.html");
     }
 
     #[Route(path: "server/addVm",name: "dash.postAddVm")]
