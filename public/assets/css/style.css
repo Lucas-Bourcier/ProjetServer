@@ -4,8 +4,7 @@
 }
 
 #bodyIndex{
-	background-color: #fff0f5
-;
+	background-color: #bcbcbc;
 }
 .head{
 	background-color: #1f1f1f;
@@ -29,6 +28,8 @@ nav {
 	width: 100%;
 	background-color: #1f1f1f;
 	padding: 15px;
+	-webkit-box-shadow: 0px 10px 20px 10px rgba(0,0,0,0.4);
+	box-shadow: 0px 10px 20px 10px rgba(0,0,0,0.4);
 }
 
 nav > .inline {
@@ -58,13 +59,21 @@ nav > .inline > .middle {
 	justify-content: center;
 }
 
-nav > .inline > .liste  {
+nav > .inline > .liste {
 	width: 100%;
+	display: flex;
+	align-items: center;
 }
 
 nav > .inline > .liste > ul > li {
 	display: inline;
 	margin-left: 3% ;
+}
+
+ul {
+	width: 100%;
+	display: flex;
+	justify-content: right;
 }
 
 .orange{
@@ -209,7 +218,7 @@ nav > .inline > .liste > ul > li {
 }
 
 .nomindex{
-	font-family: Century Gothic;
+	text-transform: uppercase;
 	font-size: 60px;
 	text-align: center;
 	color: black;
@@ -317,6 +326,8 @@ margin-right: 2rem !important;
 	bottom: -1;
 	margin-top: 2rem;
 	padding-top: 1.5rem;
+	-webkit-box-shadow: 0px -10px 20px 10px rgba(0,0,0,0.4);
+	box-shadow: 0px -10px 20px 10px rgba(0,0,0,0.4);
 }
 .centreLeTout{
 	width: 25%;
@@ -377,7 +388,7 @@ margin-right: 2rem !important;
 }
 
 .logoHeader{
-	width: 14%;
+	width: 20%;
 }
 
 .textdocu{
