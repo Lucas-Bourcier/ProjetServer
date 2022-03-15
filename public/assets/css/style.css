@@ -70,7 +70,7 @@ nav > .inline > .liste > ul > li {
 	margin-left: 3% ;
 }
 
-ul {
+.posi-hd {
 	width: 100%;
 	display: flex;
 	justify-content: right;
