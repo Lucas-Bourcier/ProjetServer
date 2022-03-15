@@ -1,18 +1,19 @@
 <?php
 return array(
-	"siteUrl"=>"http://127.0.0.1:8090/",
+	"siteUrl"=>"http://vm-2.sts-sio-caen.info/",
 	"database"=>[
 			"type"=>"mysql",
 			"dbName"=>"proxmox",
 			"serverName"=>"127.0.0.1",
 			"port"=>3306,
-			"user"=>"root",
-			"password"=>"",
-			"options"=>[],
-			"cache"=>false
+			"user"=>"sio2a",
+			"password"=>"sio2a",
+			"options"=>array(),
+			"cache"=>false,
+			"wrapper"=>"Ubiquity\\db\\providers\\pdo\\PDOWrapper"
 			],
-	"sessionName"=>"s61f7baf559879composer global require phpmv/ubiquity-devtools",
-	"namespaces"=>[],
+	"sessionName"=>"s61f7baf559879",
+	"namespaces"=>array(),
 	"templateEngine"=>"Ubiquity\\views\\engine\\Twig",
 	"templateEngineOptions"=>[
 			"cache"=>false
@@ -27,21 +28,20 @@ return array(
 )['sessionName'], \Monolog\Logger::INFO);
 	},
 	"di"=>[
-			"@exec"=>[
-					"jquery"=>function ($controller){
+			"@exec"=>array("jquery"=>function ($controller){
 						return \Ajax\php\ubiquity\JsUtils::diSemantic($controller);
-					}
-					]
+					})
 			],
 	"cache"=>[
 			"directory"=>"cache/",
 			"system"=>"Ubiquity\\cache\\system\\ArrayCache",
-			"params"=>[]
+			"params"=>array()
 			],
 	"mvcNS"=>[
 			"models"=>"models",
 			"controllers"=>"controllers",
-			"rest"=>""
+			"rest"=>"",
+			"domains"=>"domains"
 			],
 	"onError"=>function ($code, $message = NULL, $controllerInstance = NULL){
 				switch ($code) {

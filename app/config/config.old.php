@@ -1,6 +1,6 @@
 <?php
 return array(
-	"siteUrl"=>"http://127.0.0.1:8090/",
+	"siteUrl"=>"http://vm-2.sts-sio-caen.info/",
 	"database"=>[
 			"type"=>"mysql",
 			"dbName"=>"proxmox",
@@ -11,7 +11,7 @@ return array(
 			"options"=>[],
 			"cache"=>false
 			],
-	"sessionName"=>"s61f7baf559879",
+	"sessionName"=>"s61f7baf559879composer global require phpmv/ubiquity-devtools",
 	"namespaces"=>[],
 	"templateEngine"=>"Ubiquity\\views\\engine\\Twig",
 	"templateEngineOptions"=>[

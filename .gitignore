@@ -23,4 +23,5 @@ app/logs/
 .history/
 
 app/config/config.php
+app/config/config.old.php
 ./composer.lock
