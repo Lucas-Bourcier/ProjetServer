@@ -4,7 +4,8 @@
 }
 
 #bodyIndex{
-	background-color: #8d8d8d;
+	background-color: #fff0f5
+;
 }
 .head{
 	background-color: #1f1f1f;
@@ -203,8 +204,16 @@ nav > .inline > .liste > ul > li {
 }
 
 .indeximage {
-    background-image: url("../img/banniere.jpg");
-	background-size: cover;
+   	width: 60%;
+	height: 550px;
+}
+
+.nomindex{
+	font-family: Century Gothic;
+	font-size: 60px;
+	text-align: center;
+	color: black;
+	text-decoration: underline;
 }
 
 .imgtxt {
@@ -247,6 +256,7 @@ nav > .inline > .liste > ul > li {
 
 .titreindex{
 	text-align: center;
+	text-decoration: underline;
 }
 
 .imageCard{
@@ -255,8 +265,9 @@ nav > .inline > .liste > ul > li {
 }
 
 .texteindex{
+	padding: 15px;
 	text-align: center;
-	font-size: 125%;
+	font-size: 130%;
 
 }
 
@@ -303,7 +314,7 @@ margin-right: 2rem !important;
 	background-color: #1f1f1f;
 	position: absolute;
 	display: flex;	
-	bottom: 0;
+	bottom: -1;
 	margin-top: 2rem;
 	padding-top: 1.5rem;
 }
@@ -330,7 +341,7 @@ margin-right: 2rem !important;
 	
 	padding: 1em 1em;
 	
-	margin-top: 6.8rem;
+	margin-top: 1rem;
 	margin-left: 5rem;
 	margin-right: 5rem;
 	margin-bottom: 3rem;
