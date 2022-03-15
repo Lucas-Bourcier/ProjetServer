@@ -100,11 +100,23 @@ class DashBoard extends ControllerBase{
     #[Post(path: "add",name: "dash.postAdd")]
     #[Allow(['@ADMIN','@PROF'])]
     public function postAdd(){
-        $server = New Serveur();
-       URequest::setValuesToObject($server);
-       if(DAO::insert($server)){
+    $server = New Serveur();
+    URequest::setValuesToObject($server);
+    $datas = URequest::post('selection');
+    if (DAO::insert($server)){
+        foreach ($datas as $data){
+            $champs = explode('|',$data);
+            $vm = New Vm();
+            $vm->setServeur($server->getId());
+            $vm->setNumber($champs[0]);
+            $vm->setName($champs[1]);
+            if(DAO::insert($vm)){
 
-       }
+            }
+        }
+    }else{
+       
+    }
     }
 
     #[Post(path: "server/connexion",name: "dash.postConnexion")]
@@ -113,11 +125,29 @@ class DashBoard extends ControllerBase{
         $api = new ProxmoxApi(URequest::post("ipaddress"),URequest::post("login"),URequest::post("password"));
         $vms=$api->getVMs();
         $dt=$this->jquery->semantic()->dataTable('dt-vms', \stdClass::class,$vms);
-        $dt->setFields(['vmid','name',]);
+        $dt->setFields(['vmid','name']);
         $dt->setHasCheckboxes(true);
+        $dt->setIdentifierFunction(function($i,$o){
+            return $o->vmid.'|'.$o->name;
+        });
         $dt->fieldAsLabel('vmid', 'server');
         $dt->setCompact(true);
         $this->jquery->renderView("/Dashboard/connexion.html");
     }
 
+    #[Route(path: "server/addVm",name: "dash.postAddVm")]
+    #[Allow(['@ADMIN','@PROF'])]
+    public function AddVmToServer(){
+
+        $datas = URequest::post('selection');
+        foreach ($datas as $data){
+            $champs = explode('|',$data);
+            $vm = New Vm();
+            $vm->setNumber($champs[0]);
+            $vm->setName($champs[1]);
+            if(DAO::insert($vm)){
+                //Faire message succès
+            }
+        }
+    }
 }

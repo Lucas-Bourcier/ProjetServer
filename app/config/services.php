@@ -8,3 +8,4 @@ Router::addRoute("_default", "controllers\\IndexController");
 \Ubiquity\assets\AssetsManager::start($config);
 \Ubiquity\security\acl\AclManager::start();
 \Ubiquity\security\acl\AclManager::initFromProviders([new \Ubiquity\security\acl\persistence\AclCacheProvider()]);
+\Ubiquity\security\csrf\CsrfManager::start();
