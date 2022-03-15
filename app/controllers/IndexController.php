@@ -45,6 +45,10 @@ class IndexController extends ControllerBase {
         $this->jquery->renderView('IndexController/groups.html', ['groups' => $group]);
     }
 
+    #[Route("/documentation", name: "documentation.home")]
+    public function documentation(){
+        $this->jquery->renderView('IndexController/Documentation.html');
+    }
 
     #[POST('ModifMdp/update',name: 'orgas.submit')]
     public function update(){
