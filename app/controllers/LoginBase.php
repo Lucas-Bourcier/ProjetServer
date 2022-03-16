@@ -115,7 +115,7 @@ class LoginBase extends \Ubiquity\controllers\auth\AuthController{
         $user->setPassword(URequest::password_hash('password'));
         $user->setImage(URequest::post('image'));
         $user->setDescription(URequest::post('description'));
-        $user->setRole("@USER");
+        $user->setRole("@ETUDIANT");
         return DAO::insert($user);
         }
         return false;
