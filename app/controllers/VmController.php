@@ -59,7 +59,7 @@ class VmController extends ControllerBase{
         $frm=$this->jquery->semantic()->dataForm('vm-form',$vm);
         $frm->setActionTarget(Router::path('vm.postVm'), '');
         $frm->setProperty('method','post');
-        $frm->setFields(['Number','Name', 'Ip', 'Sshport','Os', 'Groupe', 'Serveur', 'User_', 'submit']);
+        $frm->setFields(['Number','Name', 'Ip', 'SshPort','Os', 'Groupe', 'Serveur', 'User_', 'submit']);
         $frm->fieldAsDropDown('Groupe', UArrayModels::asKeyValues(DAO::getAll(Groupe::class),'getId'));
         $frm->fieldAsDropDown('Serveur', UArrayModels::asKeyValues(DAO::getAll(Serveur::class), 'getId'));
         $frm->fieldAsDropDown('User_', UArrayModels::asKeyValues(DAO::getAll(User_::class), 'getId'));
