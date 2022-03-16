@@ -94,7 +94,13 @@ class DashBoard extends ControllerBase{
     public function DashServers(){
         $server = DAO::getAll(Serveur::class);
         $this->jquery->postFormOnClick('#btn-connexion',Router::path('dash.postConnexion'),'form-server','#template-server',['hasLoader'=>'internal']);
-        $this->jquery->renderView("DashBoard/DashServers.html", ['servers' => $server]);
+        $this->jquery->renderView("DashBoard/DashServerIndex.html", ['servers' => $server]);
+    }
+
+    #[Route('/DashBoard/CreateServer', name: 'dash.serverCreate')]
+    #[Allow(['@ADMIN','@PROF'])]
+    public function DashServersProx(){
+        $this->jquery->renderView("DashBoard/DashServers.html");
     }
 
     #[Post(path: "add",name: "dash.postAdd")]
