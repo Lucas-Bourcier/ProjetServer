@@ -1,12 +1,14 @@
 <?php
 namespace controllers;
  use Ajax\php\ubiquity\JsUtils;
+ use models\Dns;
  use models\Groupe;
  use models\Serveur;
  use models\User_;
  use models\Vm;
  use PHPMV\ProxmoxApi;
  use Ubiquity\attributes\items\acl\Allow;
+ use Ubiquity\attributes\items\router\Get;
  use Ubiquity\attributes\items\router\Route;
  use Ubiquity\controllers\auth\AuthController;
  use Ubiquity\controllers\auth\WithAuthTrait;
@@ -180,5 +182,35 @@ class DashBoard extends ControllerBase{
             URequest::setValuesToObject($user);
             DAO::save($user);
         }
+    }
+
+
+    #[Get(path: "/addServer",name: "dash.addServer")]
+    #[Allow(['@ADMIN','@PROF','@ETUDIANT'])]
+    public function addVm(){
+        $serveur=new Serveur();
+        $frm=$this->jquery->semantic()->dataForm('serv-form',$serveur);
+        $frm->setActionTarget(Router::path('dash.postServ'), '#bodyDashBoard');
+        $frm->setProperty('method','post');
+        $frm->setFields(['id','IpAddress', 'DnsName', 'Login','Password', 'dnss', 'routes', 'vms', 'user_s', 'submit']);
+        $frm->fieldAsDropDown('dnss', UArrayModels::asKeyValues(DAO::getAll(Dns::class),'getId'));
+        $frm->fieldAsDropDown('vms', UArrayModels::asKeyValues(DAO::getAll(Vm::class), 'getId'));
+        $frm->fieldAsDropDown('routes', UArrayModels::asKeyValues(DAO::getAll(\models\Route::class), 'getId'));
+        $frm->fieldAsDropDown('user_s', UArrayModels::asKeyValues(DAO::getAll(User_::class), 'getId'));
+        $frm->fieldAsSubmit('submit', 'green','');
+        $frm->fieldAsHidden('id');
+        $this->jquery->renderView('DashBoard/addServer.html');
+    }
+
+
+    #[Post(path: "addVm/resultPost",name: "dash.postServ")]
+    #[Allow(['@ADMIN','@PROF','@ETUDIANT'])]
+    public function postVm(){
+        $serv= new Serveur();
+        if ($serv){
+            URequest::setValuesToObject($serv);
+            DAO::insert($serv);
+        }
+        $this->DashServers();
     }
 }
