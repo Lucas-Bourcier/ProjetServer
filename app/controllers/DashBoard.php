@@ -16,6 +16,7 @@ namespace controllers;
  use Ubiquity\utils\http\URequest;
  use Ubiquity\utils\http\USession;
  use Ubiquity\attributes\items\router\Post;
+ use Ubiquity\utils\models\UArrayModels;
 
  /**
   * Controller DashBoard
@@ -93,14 +94,31 @@ class DashBoard extends ControllerBase{
     #[Allow(['@ADMIN','@PROF'])]
     public function DashServers(){
         $server = DAO::getAll(Serveur::class);
-        $this->jquery->postFormOnClick('#btn-connexion',Router::path('dash.postConnexion'),'form-server','#template-server',['hasLoader'=>'internal']);
+
         $this->jquery->renderView("DashBoard/DashServerIndex.html", ['servers' => $server]);
     }
 
     #[Route('/DashBoard/CreateServer', name: 'dash.serverCreate')]
     #[Allow(['@ADMIN','@PROF'])]
     public function DashServersProx(){
+        $this->jquery->postFormOnClick('#btn-connexion',Router::path('dash.postConnexion'),'form-server','#template-server',['hasLoader'=>'internal']);
         $this->jquery->renderView("DashBoard/DashServers.html");
+    }
+
+    #[Post(path: "server/connexion",name: "dash.postConnexion")]
+    #[Allow(['@ADMIN','@PROF'])]
+    public function connexion(){
+        $api = new ProxmoxApi(URequest::post("ipaddress"),URequest::post("login"),URequest::post("password"));
+        $vms=$api->getVMs();
+        $dt=$this->jquery->semantic()->dataTable('dt-vms', \stdClass::class,$vms);
+        $dt->setFields(['vmid','name']);
+        $dt->setHasCheckboxes(true);
+        $dt->setIdentifierFunction(function($i,$o){
+            return $o->vmid.'|'.$o->name;
+        });
+        $dt->fieldAsLabel('vmid', 'server');
+        $dt->setCompact(true);
+        $this->jquery->renderView("/DashBoard/connexion.html");
     }
 
     #[Post(path: "add",name: "dash.postAdd")]
@@ -120,30 +138,12 @@ class DashBoard extends ControllerBase{
 
             }
         }
-    }else{
-
     }
-    }
-
-    #[Post(path: "server/connexion",name: "dash.postConnexion")]
-    #[Allow(['@ADMIN','@PROF'])]
-    public function Connexion(){
-        $api = new ProxmoxApi(URequest::post("ipaddress"),URequest::post("login"),URequest::post("password"));
-        $vms=$api->getVMs();
-        $dt=$this->jquery->semantic()->dataTable('dt-vms', \stdClass::class,$vms);
-        $dt->setFields(['vmid','name']);
-        $dt->setHasCheckboxes(true);
-        $dt->setIdentifierFunction(function($i,$o){
-            return $o->vmid.'|'.$o->name;
-        });
-        $dt->fieldAsLabel('vmid', 'server');
-        $dt->setCompact(true);
-        $this->jquery->renderView("/DashBoard/connexion.html");
     }
 
     #[Route(path: "server/addVm",name: "dash.postAddVm")]
     #[Allow(['@ADMIN','@PROF'])]
-    public function AddVmToServer(){
+    public function addVmToServer(){
 
         $datas = URequest::post('selection');
         foreach ($datas as $data){
@@ -154,6 +154,31 @@ class DashBoard extends ControllerBase{
             if(DAO::insert($vm)){
                 //Faire message succès
             }
+        }
+    }
+
+    #[Route(path :"edit/profil",name: "dash.editProfil")]
+    #[Allow(['@ADMIN','@PROF','@ETUDIANT'])]
+    public function editProfil(){
+        $user_id = USession::get('user_id');
+        $df=$this->jquery->semantic()->dataForm('frm-profil', $user_id );
+        $df->setActionTarget(Router::path('profil-update.submit'), '');
+        $df->setProperty('method', 'post');
+        $df->setFields(['id','Number','Login','Password','Role','Description','Github','Linkedin','Image','groupes','vms','serveurs', 'submit']);
+        $df->fieldAsDropDown('groupes', UArrayModels::asKeyValues(DAO::getAll(Groupe::class),'getId'));
+        $df->fieldAsDropDown('serveurs', UArrayModels::asKeyValues(DAO::getAll(Serveur::class), 'getId'));
+        $df->fieldAsDropDown('vms', UArrayModels::asKeyValues(DAO::getAll(User_::class), 'getId'));
+        $df->fieldAsHidden('id');
+        $df->fieldAsSubmit('submit', 'green fluid');
+        $this->jquery->renderView('DashBoard/updateFormDashProfil.html');
+    }
+
+    #[Post('update', name: 'profil-update.submit')]
+    public function update(){
+        $user = USession::get('user_id');
+        if ($user){
+            URequest::setValuesToObject($user);
+            DAO::save($user);
         }
     }
 }
