@@ -2,7 +2,7 @@
     <div class="content-dash">
         <h1>Mes Serveurs</h1>
         <div class="dash-middle margin-bot-dash">
-            <a class="ui primary button" href="{{path('dash.serverCreate')}}"><i class="plus icon"></i> Créer un serveur</a>
+            <a class="ui primary button" href="{{path('dash.serverCreate')}}"><i class="plus icon"></i> Créer un serveur via proxmox</a>
         </div>
         {% for server in servers %}
         <div class="ui fluid card">
@@ -22,7 +22,7 @@
             <div class="extra content">
                 <div class="ui two buttons">
                     <a class="ui green button" href="{{path('dash.serverCreate')}}">Modifier le serveur</a>
-                    <a class="ui  red button" href="{{path('vm.delete', [vm.id])}}">Supprimer le serveur</a>
+                    <a class="ui  red button" href="{{path('server.delete', [server.id])}}">Supprimer le serveur</a>
                 </div>
             </div>
         </div>
