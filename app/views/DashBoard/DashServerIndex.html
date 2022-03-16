@@ -3,6 +3,7 @@
         <h1>Mes Serveurs</h1>
         <div class="dash-middle margin-bot-dash">
             <a class="ui primary button" href="{{path('dash.serverCreate')}}"><i class="plus icon"></i> Créer un serveur via proxmox</a>
+            <a class="ui primary button" href="{{path('dash.addServer')}}"><i class="plus icon"></i> Créer un serveur</a>
         </div>
         {% for server in servers %}
         <div class="ui fluid card">
