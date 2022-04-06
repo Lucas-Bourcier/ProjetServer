@@ -22,6 +22,6 @@ app/logs/
 # Local History for Visual Studio Code
 .history/
 
-app/config/config.php
-app/config/config.old.php
-./composer.lock
+#app/config/config.php
+#app/config/config.old.php
+#./composer.lock
